@@ -17,3 +17,8 @@ gpg --list-keys
 #We need download the file (mypartner)
 #Then use to import andres
 gpg --import andres_llave_publica.asc
+#If all its okey we can use:
+gpg --list-keys
+#echo = We use echo to show in console
+#>= It is the filter to txt
+ echo "hola andres" >doc_no_cifrado.txt
