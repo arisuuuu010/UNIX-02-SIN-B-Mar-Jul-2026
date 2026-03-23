@@ -29,3 +29,5 @@ do.txt
  $ gpg --decrypt holaarieltilin.txt
 #Create a new file with our sign 
  gpg --output docfirmado.txt --clearsign doc_no_cifrado.txt
+#We can edit the key and tyhe confidence
+ gpg --edit-key 10764728C8B9C7F941FCF5F49CE2A432BF706712
