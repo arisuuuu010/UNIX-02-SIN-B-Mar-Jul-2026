@@ -22,3 +22,8 @@ gpg --list-keys
 #echo = We use echo to show in console
 #>= It is the filter to txt
  echo "hola andres" >doc_no_cifrado.txt
+ #The code creates a new file in binary
+ gpg --output Holaandrestilinjaja.txt --encrypt --recipient 10764728C8B9C7F941FCF5F49CE2A432BF706712 doc_no_cifra
+do.txt
+#My partner sent me the file. so I need descrypt the file and with the code, it shows the message
+ $ gpg --decrypt holaarieltilin.txt
