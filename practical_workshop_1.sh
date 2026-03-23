@@ -27,3 +27,5 @@ gpg --list-keys
 do.txt
 #My partner sent me the file. so I need descrypt the file and with the code, it shows the message
  $ gpg --decrypt holaarieltilin.txt
+#Create a new file with our sign 
+ gpg --output docfirmado.txt --clearsign doc_no_cifrado.txt
