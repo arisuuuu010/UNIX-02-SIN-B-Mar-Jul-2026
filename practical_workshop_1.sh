@@ -33,3 +33,5 @@ do.txt
 gpg --verify doc_no_cifrado_firmado.txt
 #We can edit the key and tyhe confidence
  gpg --edit-key 10764728C8B9C7F941FCF5F49CE2A432BF706712
+ # Do the file in binary
+ gpg --output doc_no_cifrado_firmado_binario.txt --sign doc_no_cifrado.txt
