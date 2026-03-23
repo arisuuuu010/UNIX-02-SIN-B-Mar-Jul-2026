@@ -6,3 +6,7 @@ gpg --version
 gpg --full-generate-key
 gpg --list-keys
 gpg --armor --export yumbilloariel@gmail.com > mi_llave_publica.asc
+#list private keys
+gpg --list-secret-keys --keyid-format=long
+#If we have some keys in our list, we need specifie the  hash, it means, we need to use the sec
+gpg --armor --export-secret-keys 70571C1279AE9727
