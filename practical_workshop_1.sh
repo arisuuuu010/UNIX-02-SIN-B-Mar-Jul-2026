@@ -33,7 +33,8 @@ do.txt
  #BLOQ D
 #Create a new file with our sign 
  gpg --output docfirmado.txt --clearsign doc_no_cifrado.txt
- 
+ #We can use a new sign, called binarysigned
+ gpg --output docfirmadobinario.txt --sign doc_no_cifrado.txt
 #Verify the sign
 gpg --verify doc_no_cifrado_firmado.txt
 #We can edit the key and tyhe confidence
