@@ -35,8 +35,11 @@ do.txt
  gpg --output docfirmado.txt --clearsign doc_no_cifrado.txt
  #We can use a new sign, called binarysigned
  gpg --output docfirmadobinario.txt --sign doc_no_cifrado.txt
+ #In case that you want separte your key from your file, ya can do it!
+ gpg --output docfirmaseparada.txt --detach  --sign doc_no_cifrado.txt
 #Verify the sign
 gpg --verify doc_no_cifrado_firmado.txt
+
 #We can edit the key and tyhe confidence
  gpg --edit-key 10764728C8B9C7F941FCF5F49CE2A432BF706712
  # Do the file in binary
