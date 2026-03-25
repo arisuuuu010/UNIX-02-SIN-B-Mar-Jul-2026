@@ -40,7 +40,10 @@ do.txt
 #Verify the sign of my partner
 gpg --verify doc_no_cifrado_firmado.txt
 #Verify the binary signature
-
+gpg --verify doc_no_cifrado_binario.txt
+#Verify the detach sign (We can support with gemini to do the verify)
+gpg --verify doc_no_cifrado_firma_separada.sig doc_no_cifrado_andres.txt
+#Gemini said that we need the original file in the code for verify
 #BLOQ E
 #We can edit the key and tyhe confidence
  gpg --edit-key 10764728C8B9C7F941FCF5F49CE2A432BF706712
