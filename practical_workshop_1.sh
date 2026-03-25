@@ -32,13 +32,15 @@ do.txt
  $ gpg --decrypt holaarieltilin.txt
  #BLOQ D
 #Create a new file with our sign 
- gpg --output docfirmado.txt --clearsign doc_no_cifrado.txt
+ gpg --output docfirmadoariel.txt --clearsign doc_no_cifrado.txt
  #We can use a new sign, called binarysigned
- gpg --output docfirmadobinario.txt --sign doc_no_cifrado.txt
+ gpg --output docfirmadobinarioari.txt --sign doc_no_cifrado.txt
  #In case that you want separte your key from your file, ya can do it!
- gpg --output docfirmaseparada.txt --detach  --sign doc_no_cifrado.txt
-#Verify the sign
+ gpg --output docfirmaseparadaari.sig --detach  --sign doc_no_cifrado.txt
+#Verify the sign of my partner
 gpg --verify doc_no_cifrado_firmado.txt
+#Verify the binary signature
+
 #BLOQ E
 #We can edit the key and tyhe confidence
  gpg --edit-key 10764728C8B9C7F941FCF5F49CE2A432BF706712
