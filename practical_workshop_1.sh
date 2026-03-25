@@ -54,5 +54,6 @@ gpg --verify doc_no_cifrado_firma_separada.sig doc_no_cifrado_andres.txt
  #We can sign the keypartner
  gpg --sign-key DAE1C55C3B557407
  # BLOQ F
- 
- 
+ #Finally we use this code to sign and encryp in one step
+ gpg --encrypt --sign --recipient boldstepandrex648@gmail.com mensaje_con_todonew.gpg
+
