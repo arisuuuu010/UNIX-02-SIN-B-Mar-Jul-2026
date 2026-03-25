@@ -15,3 +15,7 @@ int main() {
 //ls -f (Unsorted, shows hidden, adds symbols (*, /).)
 //ls -i (run inode)
 //$ cat /proc/cpuinfo (We can have all the information about my device in one code)
+//stat text.txt (said the information bloks)
+//saludo_bin (create saludo in bin)
+//ls -bin (we can watch the information)
+//type (kind of data)
