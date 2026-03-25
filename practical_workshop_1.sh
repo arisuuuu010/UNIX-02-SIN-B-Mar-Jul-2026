@@ -56,4 +56,5 @@ gpg --verify doc_no_cifrado_firma_separada.sig doc_no_cifrado_andres.txt
  # BLOQ F
  #Finally we use this code to sign and encryp in one step
  gpg --encrypt --sign --recipient boldstepandrex648@gmail.com mensaje_con_todonew.gpg
-
+ #Decrypt the file and read tengo mucho sueño,:V by my partner hahahha
+gpg --decrypt doc_no_cifrado.txt.gpg
