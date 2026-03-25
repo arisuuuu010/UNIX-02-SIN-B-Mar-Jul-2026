@@ -9,3 +9,9 @@ int main() {
 
 }
 //pwd (print work directory)
+//ls /dev (list files in my device)
+//proc (system files)
+// cd(chanhge directory)
+//ls -f (Unsorted, shows hidden, adds symbols (*, /).)
+//ls -i (run inode)
+//$ cat /proc/cpuinfo (We can have all the information about my device in one code)
