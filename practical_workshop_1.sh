@@ -2,11 +2,12 @@
 uname -a
 which gpg 
 gpg --version
-#empieza con un punto y es un archivo oculto
-#RSA 4096, son bits universales
+#start with a point and hide files
+#RSA 4096, universals bits
 gpg --full-generate-key
 gpg --list-keys
 #BLOQ B
+#Armor is a option that transform binaryfile or txt in ASCII
 gpg --armor --export yumbilloariel@gmail.com > mi_llave_publica.asc
 #list private keys
 gpg --list-secret-keys --keyid-format=long
