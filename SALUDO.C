@@ -8,14 +8,19 @@ int main() {
     return 0;
 
 }
-//pwd (print work directory)
+//pwd (print work directory) 
+//It can helps to print the information on console
+
 //ls /dev (list files in my device)
-//proc (system files)
-// cd(chanhge directory)
+//proc (system files and give information about the system files)
+// cd(chanhge directory) We can use this if we stay in another directory we dont want
 //ls -f (Unsorted, shows hidden, adds symbols (*, /).)
 //ls -i (run inode)
+//inode means: store data
+
 //$ cat /proc/cpuinfo (We can have all the information about my device in one code)
 //stat text.txt (said the information bloks)
 //saludo_bin (create saludo in bin)
 //ls -bin (we can watch the information)
 //type (kind of data)
+//gcc saludo.c -o saludo_bin (It calls to gcc compiler and transform saludo.c to a binary file saludo_bin)

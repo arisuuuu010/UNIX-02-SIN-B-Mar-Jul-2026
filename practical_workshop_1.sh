@@ -54,5 +54,7 @@ gpg --verify doc_no_cifrado_firma_separada.sig doc_no_cifrado_andres.txt
  #We can sign the keypartner
  gpg --sign-key DAE1C55C3B557407
  # BLOQ F
- 
+ #So at the end, encrypt a sign in a same code is possible, 
+ #
+ gpg --encrypt --sign --recipient yumbilloariel@gmail.com doc_no_cifradoariel.txt
  
