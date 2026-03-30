@@ -23,5 +23,12 @@ sudo parted -l && echo -e "\n--\n" && lsblk -f && echo -e "\n---\n"
 #/sys/firmware/efi (The way to the file EFI)
 #] end test
 
+##FHS (jerarquy tree)
+## lost+found/ (It can helps to recover our files when the computer is power off)
+#/run (System data run)
+#/tmp (Temporary files, its like a temporary garbage dump)
+
+#echo "esto es un archivo" >archivo.txt (With echo we can create a file wuth a namea information)
+#stat archivo.txt (Stat give all the information that we need to know) also in class we can see that a simply message like esto es un archivo use only 19 bytes and we hace 4k bites it is a big difference
 
 
