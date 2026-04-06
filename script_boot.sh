@@ -14,4 +14,7 @@ total 12 #(Here we have . and .., the are hidden files and when we use lai, we c
 #we have 4096 that is all the bytes about each block)
 #/dev/sda (It only means disks, and in windows call C OR D)
 #Device = 0.45 (It means a virtual disk but if you have a diffrent number is a material disk)
- 
+ # man mkdir (manual information)
+# -p means the father of the system
+# man mkdir (manual of the file that we crate)
+#If we use stat /tmp/prueba again, device change to 8,1, so the file use a material disk
