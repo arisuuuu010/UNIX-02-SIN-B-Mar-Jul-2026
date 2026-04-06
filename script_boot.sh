@@ -15,6 +15,27 @@ total 12 #(Here we have . and .., the are hidden files and when we use lai, we c
 #/dev/sda (It only means disks, and in windows call C OR D)
 #Device = 0.45 (It means a virtual disk but if you have a diffrent number is a material disk)
  # man mkdir (manual information)
+ #man ls
 # -p means the father of the system
 # man mkdir (manual of the file that we crate)
 #If we use stat /tmp/prueba again, device change to 8,1, so the file use a material disk
+# pwd (Where am I?)
+#whoami(Who am I?)
+# ls (Whats there)
+ #ls
+ #ls -l
+ #ls -la
+ #ls -lh
+ 
+
+#When was modify each file?
+#ls -lt
+
+#What there are at the root of the system?
+#ls /
+
+#Explore system directories 
+#ls /etc | head -20 (list the 20 firts lines about configuration)
+#ls /dev | head -20 (list the 20 firts lines about devices)
+ 
+  
