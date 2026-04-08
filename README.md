@@ -31,3 +31,14 @@ make menuconfig (configurate a graphic interface)
 sudo mkdir /boot-files/initramfs (This code hepl to download initram (It is a mini OS to help update drivers))
 
  sudo make CONFIG_PREFIX=/boot-files/initramfs install (We install the initram)
+
+ #!/bin/sh
+/bin/sh (The firts line said the kernel that uses shell and second line said start a interactive shell)
+
+sudo rm linuxrc
+sudo chmod +x init (By removing linuxrc and giving init executable permissions, we are essentially transitioning the boot logic or preparing a custom initramfs.)
+
+sudo find . | cpio -o -H newc > ../init.cpio
+cd ..
+but it command it was wrong on my computer so I USE 
+sudo sh -c 'find . | cpio -o -H newc > ../init.cpio'
