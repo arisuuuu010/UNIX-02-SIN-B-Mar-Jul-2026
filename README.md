@@ -30,4 +30,4 @@ nano .config (To enter at file .config and configure TC with n)
 make menuconfig (configurate a graphic interface)
 sudo mkdir /boot-files/initramfs (This code hepl to download initram (It is a mini OS to help update drivers))
 
- 
+ sudo make CONFIG_PREFIX=/boot-files/initramfs install (We install the initram)
