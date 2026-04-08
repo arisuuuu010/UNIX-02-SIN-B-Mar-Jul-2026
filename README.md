@@ -42,3 +42,10 @@ sudo find . | cpio -o -H newc > ../init.cpio
 cd ..
 but it command it was wrong on my computer so I USE 
 sudo sh -c 'find . | cpio -o -H newc > ../init.cpio'
+
+Switch to root for the following steps (this simplifies permissions):
+sudo su
+Create an empty 50 MB file to serve as a virtual disk:
+dd if=/dev/zero of=boot bs=1M count=50
+Create a FAT filesystem in that file (required by Syslinux):
+mkfs -t fat boot
