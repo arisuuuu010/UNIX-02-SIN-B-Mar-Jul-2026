@@ -60,3 +60,17 @@ So I repeat all the steps again hahaha, but when i end the activity, all is well
 next and end step
 qemu-system-x86_64 -nographic -append "console=ttyS0"  -kernel bzImage -initrd init.cpio -drive file=boot,format=raw
 (That command is the execution order for QEMU to boot your system. Basically, you are telling the virtual machine exactly how it should "assemble" itself to work.)
+
+
+**Activities**
+Explain the purpose of each directory listed by the previous command in the context of BusyBox:
+The path /boot-files/initramfs/ refers to the Initial RAM File System directory, which serves as a temporary, minimalist operating system layout that your kernel loads into memory during the boot process. It acts as a staging area where you have installed BusyBox to provide essential commands (like ls and sh) and where your init script lives to tell the kernel how to start the system.
+1. Verify the firmware type: Run `[ -d /sys/firmware/efi ] && echo "UEFI" ||
+echo "BIOS"` both in the codespace and within QEMU. What result do you get and why?
+
+
+2. Inspect the structure: Within QEMU, run `ls /` and compare it to the directory structure we saw in class. Which directories are missing and why?
+
+3. Explore BusyBox: Within QEMU, run `ls -la /bin/` and observe that all the commands are symbolic links to the same binary. What advantage does this have for an embedded system?
+
+4. Examine blocks: In the codespace, create a file with `echo "hello" > test.txt` and then run `stat test.txt`. Identify the actual size versus the allocated blocks. Is there internal fragmentation? 5. Analyze partitions: Run `sudo parted -l && echo -e "\n---\n" && lsblk -f` on the codespace. This identifies which disks use GPT vs. MBR, and which filesystems are in use.
