@@ -49,3 +49,8 @@ Create an empty 50 MB file to serve as a virtual disk:
 dd if=/dev/zero of=boot bs=1M count=50
 Create a FAT filesystem in that file (required by Syslinux):
 mkfs -t fat boot
+syslinux boot
+mkdir m
+mount boot m
+cp bzImage init.cpio m
+umount mq
