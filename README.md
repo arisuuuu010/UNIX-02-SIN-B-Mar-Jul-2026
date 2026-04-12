@@ -55,4 +55,8 @@ mount boot m
 cp bzImage init.cpio m
 umount mq
 
-so in this moment i can do it, i give up, but I can do it again
+so in this moment i can do it, i give up, but I can do it again 
+So I repeat all the steps again hahaha, but when i end the activity, all is well.
+next and end step
+qemu-system-x86_64 -nographic -append "console=ttyS0"  -kernel bzImage -initrd init.cpio -drive file=boot,format=raw
+(That command is the execution order for QEMU to boot your system. Basically, you are telling the virtual machine exactly how it should "assemble" itself to work.)
