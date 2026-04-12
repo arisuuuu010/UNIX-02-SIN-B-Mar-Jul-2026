@@ -54,3 +54,5 @@ mkdir m
 mount boot m
 cp bzImage init.cpio m
 umount mq
+
+so in this moment i can do it, i give up, but I can do it again
