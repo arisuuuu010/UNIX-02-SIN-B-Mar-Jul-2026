@@ -9,3 +9,5 @@ ls -l -a -h (This command help us wehn we know all the files with every informat
 ls -l -ah (With this commmand we have the same information)
 ls -lah (-lah is better when we want a fast typing (Hacking FBI))
 
+mkdir -- -rf (We use -- because -r is a option that means strong remove, and helping us with --, linux thinks that the new of the directory is rf)
+rmdir -- -rf (We use rmdir when we want remove sepcific file)
