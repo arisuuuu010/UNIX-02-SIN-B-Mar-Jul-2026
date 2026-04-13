@@ -27,3 +27,9 @@ man git-clone (Clones a repository into a newly created directory, creates remot
        into the current master branch, if any (this is untrue when "--single-branch" is given;
        see below).)
 
+
+chmod +x script.sh (All the people can execute the script)
+chmod u+x script.sh (U = users and x = execute, said, only users can execute the script)
+chmod o-r script.sh (O= others and -=less and r = read, it means others cannot read the script)
+chmod u+rw,go-rwx script.sh (u = users + = can  r = read w = write, go = group and others - = less r =read w = write and x =execure)
+it means Users can read and write the script, in the other hand, group and others cannot read, write and execute the script.
