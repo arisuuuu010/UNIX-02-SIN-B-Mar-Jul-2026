@@ -8,3 +8,4 @@ also the structure in both commands are, command and option.
 ls -l -a -h (This command help us wehn we know all the files with every information of each one, it means, hidden files, dates and who is the propietarie.)
 ls -l -ah (With this commmand we have the same information)
 ls -lah (-lah is better when we want a fast typing (Hacking FBI))
+
