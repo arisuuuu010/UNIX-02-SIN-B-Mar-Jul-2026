@@ -11,3 +11,8 @@ ls -lah (-lah is better when we want a fast typing (Hacking FBI))
 
 mkdir -- -rf (We use -- because -r is a option that means strong remove, and helping us with --, linux thinks that the new of the directory is rf)
 rmdir -- -rf (We use rmdir when we want remove sepcific file)
+
+
+(In both commands re have the infoormstion about the command like ls)
+ls --help (Here we have the resumize of the ls command)
+man ls (When we use man, is the all the manual and how can we use, and the options next the command, it means all the information)
