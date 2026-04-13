@@ -67,10 +67,14 @@ Explain the purpose of each directory listed by the previous command in the cont
 The path /boot-files/initramfs/ refers to the Initial RAM File System directory, which serves as a temporary, minimalist operating system layout that your kernel loads into memory during the boot process. It acts as a staging area where you have installed BusyBox to provide essential commands (like ls and sh) and where your init script lives to tell the kernel how to start the system.
 1. Verify the firmware type: Run `[ -d /sys/firmware/efi ] && echo "UEFI" ||
 echo "BIOS"` both in the codespace and within QEMU. What result do you get and why?
-
+ When  I run the code in my codespace and in my minidistro , the result was BIOS, because into github the most popular firmware is Bios and the virtual machine gives us this option, is the same in our minidistro. 
 
 2. Inspect the structure: Within QEMU, run `ls /` and compare it to the directory structure we saw in class. Which directories are missing and why?
-
+When I ran ls / into my minidistro, the files that we have are, bin, dev, init, sbin and usr, but the difference with the directory structure, we are missing some directories, such as boot, etc,home, live, tmp and var, the cause is that we create the distro into the ram, no into the disk
 3. Explore BusyBox: Within QEMU, run `ls -la /bin/` and observe that all the commands are symbolic links to the same binary. What advantage does this have for an embedded system?
+The main advantage of using symbolic links pointing to a single BusyBox binary is storage efficiency. In embedded systems with limited resources, having one multi-call binary instead of hundreds of separate executables significantly reduces the disk footprint.
 
-4. Examine blocks: In the codespace, create a file with `echo "hello" > test.txt` and then run `stat test.txt`. Identify the actual size versus the allocated blocks. Is there internal fragmentation? 5. Analyze partitions: Run `sudo parted -l && echo -e "\n---\n" && lsblk -f` on the codespace. This identifies which disks use GPT vs. MBR, and which filesystems are in use.
+4. Examine blocks: In the codespace, create a file with `echo "hello" > test.txt` and then run `stat test.txt`. Identify the actual size versus the allocated blocks. Is there internal fragmentation? 
+The actual size is 6 bytes, but the system has allocated 8 blocks, each size are 512 bytes, it means we have 4096 unusable bytes. There is significant internal fragmentation because the file does not fill the entire logical block
+5. Analyze partitions: Run `sudo parted -l && echo -e "\n---\n" && lsblk -f` on the codespace. This identifies which disks use GPT vs. MBR, and which filesystems are in use.
+The system uses the GPT (GUID Partition Table) scheme, as identified by the parted -l command. GPT is the modern standard replacing the legacy MBR. Regarding the filesystems, the output shows that ext4 is being used for the main partitions, which is the standard journaling filesystem for Linux, providing a balance between performance and data integrity.
