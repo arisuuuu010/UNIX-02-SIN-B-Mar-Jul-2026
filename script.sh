@@ -16,3 +16,14 @@ rmdir -- -rf (We use rmdir when we want remove sepcific file)
 (In both commands re have the infoormstion about the command like ls)
 ls --help (Here we have the resumize of the ls command)
 man ls (When we use man, is the all the manual and how can we use, and the options next the command, it means all the information)
+
+man git-clone (Clones a repository into a newly created directory, creates remote-tracking branches for
+       each branch in the cloned repository (visible using git branch --remotes), and creates and
+       checks out an initial branch that is forked from the cloned repository’s currently active
+       branch.
+
+       After the clone, a plain git fetch without arguments will update all the remote-tracking
+       branches, and a git pull without arguments will in addition merge the remote master branch
+       into the current master branch, if any (this is untrue when "--single-branch" is given;
+       see below).)
+
