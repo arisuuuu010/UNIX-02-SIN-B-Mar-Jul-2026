@@ -3,7 +3,7 @@ echo 'echo "Hola desde mi primer script" >> hola.sh (Here we can  add more infor
 cat hola.sh (With can we can see the content)
 ./hola.sh (Execute command but we need chmod +x hola.sh)
 
-ls -l hola.sh
-chmod +x hola.sh
-ls -l hola.sh
-./hola.sh
+ls -l hola.sh (List the files)
+chmod +x hola.sh (We have the permissions to execute the script)
+ls -l hola.sh (List the files)
+./hola.sh(Execute the command)
