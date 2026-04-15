@@ -42,3 +42,7 @@ echo "hola" | sudo tee /etc/archivo_protegido (We have the same, however /dev/nu
 sudo sh -c 'echo "chao" >> /etc/archivo_protegido' (This command is execute as root and sh open a new shell and -c give more information it means "add" information)
 cat /etc/archivo_protegido (The content in archivo_protegido are hola and chao)
 sudo su - (Sudo su - give us the user root)
+
+echo "$HOME" (We can use this code if we want a new enviroment in codespaces)
+echo '$HOME' (We can create a string with  '')
+
