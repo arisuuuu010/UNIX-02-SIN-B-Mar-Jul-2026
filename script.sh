@@ -39,4 +39,5 @@ echo "hola" | sudo tee /etc/archivo_protegido > /dev/null (This command its nett
 cat /etc/archivo_protegido(We can use cat to see the file content)
 echo "hola" | sudo tee /etc/archivo_protegido (We have the same, however /dev/null are eliminated, and the command give the content wehn we executre it)
 
-
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido' (This command is execute as root and sh open a new shell and -c give more information it means "add" information)
+cat /etc/archivo_protegido (The content in archivo_protegido are hola and chao)
