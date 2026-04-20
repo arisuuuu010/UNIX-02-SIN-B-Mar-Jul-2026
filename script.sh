@@ -45,4 +45,4 @@ sudo su - (Sudo su - give us the user root)
 
 echo "$HOME" (We can use this code if we want a new enviroment in codespaces)
 echo '$HOME' (We can create a string with  '')
-
+ 
