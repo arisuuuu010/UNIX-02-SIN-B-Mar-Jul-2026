@@ -121,7 +121,7 @@ git commit -m "Fix problema 4: permisos simbolicos corregidos"
 
 ---
 
-### Problema 5 — Bit SUID · **(1 pt máx · 1 fallo)**
+### Problema 5 — Bit SUID · **(1 pt máx · 1 fallo)** hecho
 
 `galaxia.sh` debe ejecutarse siempre con los privilegios del **dueño del archivo**,
 independientemente de quién lo invoque. Hay **1 fallo** de permisos especiales.
