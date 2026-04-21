@@ -1,0 +1,7 @@
+Key-Type: RSA
+Key-Length: 4096
+Name-Real: aurora
+Name-Email: aurora@nebula.lab
+Expire-Date: 0
+%no-protection
+%commit
