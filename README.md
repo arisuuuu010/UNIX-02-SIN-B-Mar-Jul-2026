@@ -156,7 +156,7 @@ al final de los permisos (ejemplo: `drwxrwxrwt`).
 
 ```bash
 git add .
-git commit -m "Fix problema 6: sticky bit en /tmp/nebula_zone"
+git commit -m "Fix problema 6: sticky bit en /tmp/nebula_zone" hecho
 ```
 
 | Sub-check | Correcto | Intento fallido | Sin respuesta |
