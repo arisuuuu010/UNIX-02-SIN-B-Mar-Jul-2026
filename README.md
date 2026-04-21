@@ -37,7 +37,7 @@ git commit -m "Fix problema 1: <descripción breve>"
 
 ---
 
-### Problema 1 — Estructura de directorios · **(1.5 pts máx · 2 fallos)**
+### Problema 1 — Estructura de directorios · **(1.5 pts máx · 2 fallos)** yes
 
 Dentro de `nebula/` hay **exactamente 2 errores** relacionados con directorios:
 
