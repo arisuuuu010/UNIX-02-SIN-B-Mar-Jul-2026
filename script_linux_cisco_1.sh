@@ -10,3 +10,4 @@ Also commands get structure:
 2.ls Documents //Actually when we talk about command structure, we have a good example like ls Documents, the function is give all
 the documents that you have in your computer.
 3.aptitude moo command is a multi-layered Easter egg found in the Aptitude package manager on Debian-based Linux distributions
+4.ls -l // If you want more information in a large screen you can use ls -l, you get information like, permissions. dates, etc.
