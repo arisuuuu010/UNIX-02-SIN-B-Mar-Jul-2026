@@ -19,3 +19,11 @@ ls -lr
 //they have the same function as ls -r with more information.
 6.pwd //When you type this into your terminal and hit Enter, it tells you exactly where you are currently located in the file system hierarchy.
 7.cd //When you wnat change your space, cd help you, because cd means change directory.
+cd Documents, when we run this commands, we change to Documents.
+cd /, we run this command to go the root
+cd /home/sysadmin, we can change our directory if we specified the place
+cd .., we can up one place
+8.ls -l /var/log/  is one of the most important directories because it is the central hub where the system and its applications store log files—records of everything from system crashes to login attempts.
+ls -lt /var/log/ this options give us the information date of each command
+ls -l -s /var/log It will sort the files by file size
+ls -lSr /var/log change the order from smallest to largest
