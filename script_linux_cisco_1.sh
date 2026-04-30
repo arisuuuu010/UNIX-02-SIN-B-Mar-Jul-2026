@@ -7,3 +7,5 @@ Also commands get structure:
 1.command
 2.options
 3.arguments
+2.ls Documents //Actually when we talk about command structure, we have a good example like ls Documents, the function is give all
+the documents that you have in your computer.
