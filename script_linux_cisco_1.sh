@@ -18,3 +18,4 @@ ls -rl
 ls -lr
 //they have the same function as ls -r with more information.
 6.pwd //When you type this into your terminal and hit Enter, it tells you exactly where you are currently located in the file system hierarchy.
+7.cd //When you wnat change your space, cd help you, because cd means change directory.
