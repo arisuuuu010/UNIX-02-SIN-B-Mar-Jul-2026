@@ -31,3 +31,6 @@ ls -lSr /var/log change the order from smallest to largest
 sl //usually triggers a Steam Locomotive to chug across your screen but we need execute the command like rootuser
 10.cd ~/Documents //This command change the directory to documents in root
 ls -l hello.sh // with l we can see more information in the file, like the permissions
+11.chmod //We gonna talk about chmod and it uses, firts, chmod is a command that help us to give or denied permissions
+some words like, u = users, g=group,o=others,r=read,w=write,x=execute,
+each word help as option to generate a new command like, chmod u+w, to give users can write.
