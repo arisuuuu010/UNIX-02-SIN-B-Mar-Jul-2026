@@ -39,3 +39,4 @@ each word help as option to generate a new command like, chmod u+w, to give user
 head //head give the firts part of the content
 tail //tail give the econd part of the content
 We can use -n 5 and give more details about the information that we want
+14. cp // the cp command stands for "copy." It is the standard utility used to duplicate files and directories in Linux.
