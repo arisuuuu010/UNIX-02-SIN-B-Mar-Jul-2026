@@ -34,3 +34,4 @@ ls -l hello.sh // with l we can see more information in the file, like the permi
 11.chmod //We gonna talk about chmod and it uses, firts, chmod is a command that help us to give or denied permissions
 some words like, u = users, g=group,o=others,r=read,w=write,x=execute,
 each word help as option to generate a new command like, chmod u+w, to give users can write.
+12.sudo chown // chown changes who the file belongs to. In Linux, every file and directory is tied to a specific user and a specific group.
