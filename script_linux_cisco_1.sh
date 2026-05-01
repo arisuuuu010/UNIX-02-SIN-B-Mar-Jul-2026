@@ -27,3 +27,5 @@ cd .., we can up one place
 ls -lt /var/log/ this options give us the information date of each command
 ls -l -s /var/log It will sort the files by file size
 ls -lSr /var/log change the order from smallest to largest
+9.su // when we use su, it means we are admins into the terminal.
+sl //usually triggers a Steam Locomotive to chug across your screen but we need execute the command like rootuser
