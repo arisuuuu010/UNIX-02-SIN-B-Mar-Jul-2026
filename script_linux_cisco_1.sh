@@ -40,3 +40,5 @@ head //head give the firts part of the content
 tail //tail give the econd part of the content
 We can use -n 5 and give more details about the information that we want
 14. cp // the cp command stands for "copy." It is the standard utility used to duplicate files and directories in Linux.
+15.dd //Originally standing for "Data Description," it is often nicknamed "Disk Destroyer" because it is so powerful that a small typo can wipe an entire hard drive instantly.
+dd if=/dev/zero of=/tmp/swapex bs=1M count=50 //running this, you have created a 50MB file named swapex filled entirely with binary zeros.
