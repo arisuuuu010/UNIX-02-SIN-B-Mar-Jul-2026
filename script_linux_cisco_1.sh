@@ -29,3 +29,5 @@ ls -l -s /var/log It will sort the files by file size
 ls -lSr /var/log change the order from smallest to largest
 9.su // when we use su, it means we are admins into the terminal.
 sl //usually triggers a Steam Locomotive to chug across your screen but we need execute the command like rootuser
+10.cd ~/Documents //This command change the directory to documents in root
+ls -l hello.sh // with l we can see more information in the file, like the permissions
