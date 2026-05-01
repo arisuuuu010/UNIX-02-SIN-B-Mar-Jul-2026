@@ -35,3 +35,7 @@ ls -l hello.sh // with l we can see more information in the file, like the permi
 some words like, u = users, g=group,o=others,r=read,w=write,x=execute,
 each word help as option to generate a new command like, chmod u+w, to give users can write.
 12.sudo chown // chown changes who the file belongs to. In Linux, every file and directory is tied to a specific user and a specific group.
+13.cat //cat give all the content into a file
+head //head give the firts part of the content
+tail //tail give the econd part of the content
+We can use -n 5 and give more details about the information that we want
