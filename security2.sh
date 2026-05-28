@@ -23,3 +23,8 @@ id -gn
 #Create a new file in the subshell
 touch ~/dentro_de_newgrp.txt
 ls -la ~/dentro_de_newgrp.txt
+
+#Now hte group is desarrolladores
+#Create a directory
+mkdir -p ~/proyecto_dev/src
+ls -la ~/
