@@ -72,3 +72,12 @@ sudo gpasswd grupo_restringido
 #Re-enter new password:   like 123     
 newgrp grupo_restringido
 #Password: arielman2008
+
+
+
+#It shows how can we change the group with psswd 
+ newgrp grupo_restringido
+#Password: 
+#@arisuuuu010 ➜ /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 (security2) $ id -gn
+#grupo_restringido
+#@arisuuuu010 ➜ /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 (security2) $ 
