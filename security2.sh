@@ -19,3 +19,7 @@ id -gn
 #@arisuuuu010 ➜ /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 (security2) $ echo "Nuevo grupo activo $(id -gn)"
 #Nuevo grupo activo desarrolladores
 # It shows how can we change the group
+
+#Create a new file in the subshell
+touch ~/dentro_de_newgrp.txt
+ls -la ~/dentro_de_newgrp.txt
