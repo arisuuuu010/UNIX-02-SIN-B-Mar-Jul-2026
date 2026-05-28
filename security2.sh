@@ -28,3 +28,21 @@ ls -la ~/dentro_de_newgrp.txt
 #Create a directory
 mkdir -p ~/proyecto_dev/src
 ls -la ~/
+
+#@arisuuuu010 ➜ /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 (security2) $ ls -la ~/
+#total 56
+#drwxr-xr-x  1 vscode vscode          4096 May 28 02:56 .
+#drwxr-xr-x  1 root   root            4096 May 18 14:31 ..
+#-rw-------  1 vscode vscode          1265 May 28 02:49 .bash_history
+#-rw-r--r--  1 vscode vscode          2114 May 18 14:31 .bashrc
+#drwxr-xr-x  3 vscode vscode          4096 May 28 02:23 .cache
+#drwxr-xr-x  1 vscode vscode          4096 May 28 02:23 .config
+#drwxr-xr-x  3 vscode vscode          4096 May 28 02:23 .dotnet
+#drwxr-xr-x 13 vscode vscode          4096 May 18 14:31 .oh-my-zsh
+#drwxr-xr-x  5 vscode vscode          4096 May 28 02:23 .vscode-remote
+#-rw-r--r--  1 vscode vscode            22 May 18 14:31 .zprofile
+#-rw-r--r--  1 vscode vscode          4018 May 18 14:31 .zshrc
+#-rw-r--r--  1 vscode vscode             0 May 28 02:31 antes_de_newgrp.txt
+#-rw-r--r--  1 vscode desarrolladores    0 May 28 02:55 dentro_de_newgrp.txt
+#drwxr-xr-x  3 vscode desarrolladores 4096 May 28 02:56 proyecto_dev
+#-rw-r--r--  1 vscode vscode             0 May 28 02:28 test_grupo_heredado.txt
