@@ -55,3 +55,7 @@ echo "Grupo restaurado: $(id -gn)"
 #@arisuuuu010 ➜ /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 (security2) $ ls -la ~/antes_de_newgrp.txt ~/dentro_de_newgrp.txt
 #-rw-r--r-- 1 vscode vscode          0 May 28 02:31 /home/vscode/antes_de_newgrp.txt
 #-rw-r--r-- 1 vscode desarrolladores 0 May 28 02:55 /home/vscode/dentro_de_newgrp.txt
+
+echo "PID del shell actual : $$"
+#@arisuuuu010 ➜ /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 (security2) $ echo "PID del shell actual : $$"
+#PID del shell actual : 16502
