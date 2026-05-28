@@ -11,3 +11,5 @@ echo "Grupo actual: $(id -gn)"
 touch ~/antes_de_newgrp.txt
 ls -la ~/antes_de_newgrp.txt
 
+newgrp #In my case i need to install the dependencies about newgrp
+
