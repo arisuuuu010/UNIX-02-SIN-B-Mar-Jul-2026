@@ -64,3 +64,11 @@ echo "PID del shell actual : $$"
  newgrp desarrolladores
  echo "PID dentro de newgrp: $$" 
 #PID dentro de newgrp: 18054
+
+sudo groupadd grupo_restringido
+sudo gpasswd grupo_restringido
+#Changing the password for group grupo_restringido
+#New Password: 
+#Re-enter new password:   like 123     
+newgrp grupo_restringido
+#Password: arielman2008
