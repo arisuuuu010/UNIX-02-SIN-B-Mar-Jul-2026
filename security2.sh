@@ -59,3 +59,8 @@ echo "Grupo restaurado: $(id -gn)"
 echo "PID del shell actual : $$"
 #@arisuuuu010 ➜ /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 (security2) $ echo "PID del shell actual : $$"
 #PID del shell actual : 16502
+
+#The new process in the subshell are more bigger than the main shell
+ newgrp desarrolladores
+ echo "PID dentro de newgrp: $$" 
+#PID dentro de newgrp: 18054
