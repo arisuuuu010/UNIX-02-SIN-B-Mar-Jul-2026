@@ -51,7 +51,17 @@ FROM kalilinux/kali-rolling:latest
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
-    TERM=xterm-256color
+    TERM=xterm-256color \
+    SHELL=/bin/bash
+
+
+# ----------------------------------------------------------------------------
+# SHELL: qué intérprete usar en los siguientes RUN
+# ----------------------------------------------------------------------------
+# Por defecto Docker usa /bin/sh para ejecutar todos los RUN. Si queremos
+# usar sintaxis Bash (arrays, [[ ]], etc.) desde el primer RUN, debemos
+# declarar el intérprete antes de cualquier instrucción RUN.
+SHELL ["/bin/bash", "-c"]
 
 
 # ----------------------------------------------------------------------------
@@ -183,15 +193,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # ----------------------------------------------------------------------------
-# SHELL: qué intérprete usar en los siguientes RUN
-# ----------------------------------------------------------------------------
-# Por defecto Docker usa /bin/sh (un shell más limitado y antiguo). Lo
-# cambiamos a bash por si agregamos más instrucciones con sintaxis
-# moderna (arrays, [[ ]], etc.).
-SHELL ["/bin/bash", "-c"]
-
-
-# ----------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
 # ----------------------------------------------------------------------------
 # Codespaces siempre monta el código del repositorio en
@@ -218,14 +219,14 @@ RUN git config --system --add safe.directory '*' \
 # propia terminal integrada de VS Code, pero es buena práctica dejarla
 # definida para que la imagen sea usable también con Docker puro.
 # Prompt del curso para bash
-RUN chsh -s /usr/bin/zsh/ root
+RUN chsh -s /bin/bash root
 
-RUN cat>> /root/.zshrc <<'EOF'
+RUN cat >> /root/.bashrc <<'EOF'
 
-PROMPT='%F{cyan}[Ariel_Yumbillo]%f %F{yellow}%1~%f %(?.%F{green}ok%f.%F{red}notok %?%f) %# '
+PS1='\[\e[36m\][Ariel_Yumbillo]\[\e[0m\] \[\e[33m\]\w\[\e[0m\] \[\e[32m\]$(if [[ $? == 0 ]]; then printf "ok"; else printf "notok %s" "$?"; fi)\[\e[0m\] $ '
 EOF
 
-CMD ["/usr/bin/zsh"]
+CMD ["/bin/bash", "--login"]
 
 
 

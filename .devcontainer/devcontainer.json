@@ -98,7 +98,14 @@
             "settings": {
                 // Cuando abras una terminal nueva, que sea Bash por
                 // defecto (no zsh, no sh).
-                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "args": ["--login"]
+                    }
+                },
                 // Final de línea estilo UNIX (\n) en vez de Windows
                 // (\r\n). ESTO ES CRÍTICO: los scripts shell FALLAN
                 // silenciosamente si tienen \r\n, con errores tan raros
@@ -117,7 +124,8 @@
     // terminales que abra VS Code.
     "containerEnv": {
         "LANG": "es_ES.UTF-8",
-        "TERM": "xterm-256color"
+        "TERM": "xterm-256color",
+        "SHELL": "/bin/bash"
     },
 
     // ------------------------------------------------------------------------
