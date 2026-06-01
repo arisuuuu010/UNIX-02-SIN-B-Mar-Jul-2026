@@ -1,4 +1,4 @@
-#bin/bash!
+#!/bin/bash
  bash --version
 env
 echo ${SHELL
