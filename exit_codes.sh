@@ -4,3 +4,9 @@ ls -l > /dev/null
 echo "The status code of the ls command was: $?"
 lzl 2> /dev/null
 echo "The status code of the non-existing lzl command was: $?"
+
+echo "Exiting wiith exit code: 223"
+exit 223
+
+ps -ef
+echo $?
