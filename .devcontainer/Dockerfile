@@ -236,6 +236,13 @@ RUN git config --system --add safe.directory '*' \
 # profile, converting its default shell configuration over to Zsh instead of traditional Bash.
 RUN chsh -s /usr/bin/zsh root
 
+# ============================================================================
+# Block l: Standard Input Redirection via Here-Document (Heredoc)
+# ============================================================================
+# A Here-Document employs the standard input redirection operator '<<' to append multi-line text strings 
+# directly into a file path ('/root/.zshrc') via 'cat >>' without requiring an external file editor (BHB Ch. 1).
+# The single quotes around 'EOF' ensure text contents are written exactly as shown, setting up a 
+# custom terminal visual prompt layout that highlights custom profile definitions.
 RUN cat>> /root/.zshrc <<'EOF'
 
 PROMPT='%F{cyan}[Ariel_Yumbillo]%f %F{yellow}%1~%f %(?.%F{green}ok%f.%F{red}notok %?%f) %# '
