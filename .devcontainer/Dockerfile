@@ -184,16 +184,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # === Cliente HTTP más legible que curl para aprender ===
     httpie \
     \
- # --- Después de instalar, activamos el idioma español ---
- # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
- # activar esa línea. Luego locale-gen compila los archivos de idioma.
+ # ============================================================================
+# Block f: In-Place Text Processing & Locale Compilation
+# ============================================================================
+# The 'sed -i' flag initiates an interactive, in-place substitution operation directly across text streams (BHB Ch. 2).
+# It uncomments the Spanish locale marker inside '/etc/locale.gen', allowing 'locale-gen' to run 
+# localized translation sets across the system layout.
  && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
  && locale-gen \
  \
- # --- Limpieza final: reducir el tamaño de la imagen ---
- # apt deja archivos de caché que ya no necesitamos después de instalar.
- # Borrarlos aquí (en el mismo RUN) hace la capa final más pequeña.
- # Si los borráramos en otro RUN, seguirían ocupando en la capa anterior.
+# ============================================================================
+# Block g: Cache Maintenance and Container Optimization
+# ============================================================================
+# Executing 'apt-get clean' along with 'rm -rf' flushes out transient installation tracking metadata. 
+# Purging these assets inside the exact same RUN directive ensures that heavy install (BHB Ch. 3).
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
