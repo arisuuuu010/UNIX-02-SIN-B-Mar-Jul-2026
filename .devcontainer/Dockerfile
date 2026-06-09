@@ -60,6 +60,27 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
 
 
+
+# ============================================================================
+# Block e: Package Synchronization and Binary Execution
+# ============================================================================
+# This big RUN command updates and installs all the software we need for the course.
+# - 'apt-get update' updates the list of available packages.
+# - 'apt-get install' downloads and installs the tools.
+# - The '-y' flag says 'yes' automatically to all questions.
+# - '--no-install-recommends' does not install extra packages, so the image stays small.
+# - We connect all commands with '&&' (BHB Ch. 1). This means the next command runs 
+#   only if the previous command is successful.
+# - We use ONE single RUN command to have fewer layers. This makes the final image 
+#   much smaller and faster to download (BHB Ch. 3).
+# Important tools in this block:
+#   * grep, sed, gawk: Text processing tools to filter and change text (BHB Ch. 2).
+#   * shellcheck: A tool to find errors and bad practices in my Bash scripts (BHB Ch. 1).
+#   * nmap, tcpdump, tshark: Tools for network scanning and capturing packets (BHB Ch. 3).
+#   * tor, proxychains4: Privacy tools to hide my identity and traffic on the network.
+#   * jq: A tool to read and filter JSON data from the command line.
+#   * man-db: Installs the Linux manual pages so I can use the 'man' command for help.
+
 # ----------------------------------------------------------------------------
 # RUN: ejecutar comandos durante la construcción de la imagen
 # ----------------------------------------------------------------------------
