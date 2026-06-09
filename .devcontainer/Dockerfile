@@ -202,12 +202,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 
 
-# ----------------------------------------------------------------------------
-# SHELL: qué intérprete usar en los siguientes RUN
-# ----------------------------------------------------------------------------
-# Por defecto Docker usa /bin/sh (un shell más limitado y antiguo). Lo
-# cambiamos a bash por si agregamos más instrucciones con sintaxis
-# moderna (arrays, [[ ]], etc.).
+# ============================================================================
+# Block h: Active Processing Shell Override
+# ============================================================================
+# Modifies Docker's background command shell mechanism for any subsequent RUN tasks.
+# We can use /bin/bash when we need more tools to execute into the container(BHB Ch. 1).
 SHELL ["/bin/bash", "-c"]
 
 
