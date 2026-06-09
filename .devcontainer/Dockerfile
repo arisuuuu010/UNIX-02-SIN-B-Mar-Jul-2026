@@ -35,28 +35,15 @@ FROM kalilinux/kali-rolling:latest
 # improve the way to optimized future run times and avoid redundant execution steps..
 
 
-# ----------------------------------------------------------------------------
-# ENV: variables de entorno permanentes dentro del contenedor
-# ----------------------------------------------------------------------------
-# Las variables de entorno son "ajustes globales" que cualquier programa
-# del sistema puede leer. Se escriben en MAYÚSCULAS por convención.
-#
-#   DEBIAN_FRONTEND=noninteractive
-#     Le dice al instalador de paquetes (apt) "no me hagas preguntas
-#     interactivas, asume respuestas por defecto". Sin esto, algunos
-#     paquetes pausarían el build esperando que pulsemos una tecla y se
-#     quedaría colgado para siempre (porque no hay nadie mirando).
-#
-#   LANG / LC_ALL=es_ES.UTF-8
-#     Configuran idioma y codificación de caracteres. UTF-8 es lo que
-#     permite que acentos, ñ, €, emojis, etc. se muestren bien.
-#
-#   TERM=xterm-256color
-#     Le indica a los programas que la terminal admite 256 colores, para
-#     que vim, nvim, htop, etc. se vean con todos sus colores.
-#
-# La barra invertida "\" al final de cada línea significa "esto continúa
-# en la línea siguiente". Solo es para legibilidad.
+# ============================================================================
+# Block c: System Environment Variables (ENV)
+# ============================================================================
+# Environment variables act as systemic key-value properties parsed globally by active shells (BHB Ch. 1).
+# - DEBIAN_FRONTEND=noninteractive: Suppresses graphical prompt windows from apt-get, ensuring an 
+#   automated headless compilation without unexpected execution freezes.
+# - LANG & LC_ALL: Standardizes standard language configurations to support Spanish UTF-8 text rendering.
+# - TERM=xterm-256color: Instructs CLI tools like vim or htop to utilize full 256-bit palette color structures.
+# Note: The backslash '\' represents line continuation, grouping items cleanly for better shell formatting (BHB Ch. 1).
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
