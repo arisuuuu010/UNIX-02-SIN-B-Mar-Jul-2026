@@ -50,13 +50,12 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TERM=xterm-256color
 
 
-# ----------------------------------------------------------------------------
-# Pre-respuesta a una pregunta interactiva de Wireshark
-# ----------------------------------------------------------------------------
-# Wireshark/tshark PREGUNTA durante su instalación si los usuarios
-# normales (no-root) deben poder capturar paquetes. Como en el contenedor
-# siempre somos root, respondemos "false" POR ADELANTADO usando
-# debconf-set-selections para que no detenga el build esperando input.
+# ============================================================================
+# Block d: Automated Package Selection Pre-answering
+# ============================================================================
+# The 'debconf-set-selections' command passes system configurations directly into the software database.
+# By feeding standard input via a pipe sequence '|' (BHB Ch. 1), we preemptively answer Wireshark's 
+# non-root access queries as 'false', it helps to have more  fluency.
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
 
