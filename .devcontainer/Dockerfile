@@ -217,6 +217,12 @@ SHELL ["/bin/bash", "-c"]
 # Any subsequent runtime sessions or editor interactions default directly to this directory path.
 WORKDIR /workspaces
 
+# ============================================================================
+# Block j: Git LFS Parameter Initialization
+# ============================================================================
+# Uses system flags to lock general tracking variables for all repository work paths.
+# It updates default tracking branches to 'main', prevents divergence warnings
+
 # Configuración de Git para el contenedor:
 # - safe.directory *: confía en cualquier repo montado (necesario porque
 #   /workspaces/... tiene un UID distinto al de root dentro del container).
