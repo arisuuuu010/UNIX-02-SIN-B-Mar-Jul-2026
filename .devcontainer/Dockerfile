@@ -26,6 +26,14 @@
 # preventing us from setting up these binary utilities from scratch (BHB Ch. 3).
 FROM kalilinux/kali-rolling:latest
 
+# ============================================================================
+# Block b: Instruction Order & Docker Layer Cache
+# ============================================================================
+# Docker builds its images incrementally using a read-only architecture where each instruction 
+# creates a new "layer" (BHB Ch. 3). If any instruction changes, Docker invalidates the cache 
+# from that point downward. Static configurations like image selection and core variables, help us to i 
+# improve the way to optimized future run times and avoid redundant execution steps..
+
 
 # ----------------------------------------------------------------------------
 # ENV: variables de entorno permanentes dentro del contenedor
