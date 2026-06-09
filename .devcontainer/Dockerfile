@@ -223,26 +223,18 @@ WORKDIR /workspaces
 # Uses system flags to lock general tracking variables for all repository work paths.
 # It updates default tracking branches to 'main', prevents divergence warnings
 
-# Configuración de Git para el contenedor:
-# - safe.directory *: confía en cualquier repo montado (necesario porque
-#   /workspaces/... tiene un UID distinto al de root dentro del container).
-# - init.defaultBranch main: evita warnings de "master vs main" en git init.
-# - pull.rebase false: merge por defecto al hacer pull (más intuitivo)
-# - git lfs install --system: registra los hooks de LFS globalmente para
-#   que, si un repo los necesita, funcionen sin sorpresas.
+
 RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
  && git lfs install --system
 
-# ----------------------------------------------------------------------------
-# CMD: comando que se ejecuta por defecto al arrancar el contenedor
-# ----------------------------------------------------------------------------
-# Lanza una shell bash interactiva. Codespaces la sobrescribe con su
-# propia terminal integrada de VS Code, pero es buena práctica dejarla
-# definida para que la imagen sea usable también con Docker puro.
-# Prompt del curso para bash
-RUN chsh -s /usr/bin/zsh/ root
+# ============================================================================
+# Block k: User Privilege Shell Switch
+# ============================================================================
+# The 'chsh' utility manipulates execution profiles. Here, it targets the elevated 'root' 
+# profile, converting its default shell configuration over to Zsh instead of traditional Bash.
+RUN chsh -s /usr/bin/zsh root
 
 RUN cat>> /root/.zshrc <<'EOF'
 
