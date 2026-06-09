@@ -248,7 +248,12 @@ RUN cat>> /root/.zshrc <<'EOF'
 PROMPT='%F{cyan}[Ariel_Yumbillo]%f %F{yellow}%1~%f %(?.%F{green}ok%f.%F{red}notok %?%f) %# '
 EOF
 
+# ============================================================================
+# Block m: Interactive Runtime Shell Command (CMD)
+# ============================================================================
+# Essential difference: While 'RUN' fires instructions that execute *during* the construction phase 
+# of an image, the 'CMD' parameter specifies the baseline payload execution command that runs *when the container spins up* live.
+# Here, it automatically drops the developer directly into an interactive Zsh prompt session.
 CMD ["/usr/bin/zsh"]
-
 
 
