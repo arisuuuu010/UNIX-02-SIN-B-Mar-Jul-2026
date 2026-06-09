@@ -17,12 +17,13 @@
 # ============================================================================
 
 
-# ----------------------------------------------------------------------------
-# FROM: imagen base sobre la que vamos a construir
-# ----------------------------------------------------------------------------
-# En lugar de partir de cero, partimos de la imagen oficial de Kali Linux
-# en su versión "rolling" (actualización continua, siempre al día).
-# Todo lo que instalemos más abajo se apila ENCIMA de esta base.
+# ============================================================================
+# Block a: Base Image Definition
+# ============================================================================
+# The FROM instruction specifies the foundation layer of our environment.
+# We utilize kalilinux/kali-rolling:latest as it provides a continuously updated 
+# platform packed with pre-installed cybersecurity tools and networking analysis suites, 
+# preventing us from setting up these binary utilities from scratch (BHB Ch. 3).
 FROM kalilinux/kali-rolling:latest
 
 
