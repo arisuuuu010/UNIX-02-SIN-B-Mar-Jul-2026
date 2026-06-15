@@ -1,0 +1,24 @@
+#!/bin/bash
+# Shebang line: Specifies that the Bash shell should be used to interpret and run this script.
+
+# Starts a loop that iterates over all files in the current directory matching the pattern "example_file*".
+# The current filename is stored in the variable 'file' during each iteration.
+for file in example_file*; do
+
+    # Condition: Checks if the current filename matches exactly "example_file1".
+    if [[ "${file}" == "example_file1" ]]; then  
+    
+        # Prints a message to the terminal indicating that this specific file is being skipped.
+        echo "Skipping the first file."
+        
+        # Skips the rest of the code inside the loop for this file and immediately jumps to the next iteration.
+        continue  
+        
+    # Closes the 'if' conditional statement.
+    fi
+    
+    # Generates a random integer (via $RANDOM) and overwrites (>) the content of the current file with it.
+    echo "${RANDOM}" > "${file}"  
+
+# Closes the 'for' loop once all matching files have been processed.
+done
