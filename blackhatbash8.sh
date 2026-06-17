@@ -23,3 +23,4 @@ awk ' {print $NF}' log.txt
 #[Ariel_Yumbillo] /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 ok $ 
 
 awk 'NR < 10' log.txt
+grep "42.236.10.117" log.txt | awk '{print $7}'
