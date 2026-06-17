@@ -24,3 +24,8 @@ awk ' {print $NF}' log.txt
 
 awk 'NR < 10' log.txt
 grep "42.236.10.117" log.txt | awk '{print $7}'
+
+sed 's/Modzilla/Godzilla/g' log.txt
+sed 's/mozilla/Godzilla/gi' log.txt > newlog.txt
+ls -lh newlog.txt
+grep -i "Godzilla" newlog.txt
