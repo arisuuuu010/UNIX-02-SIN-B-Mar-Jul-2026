@@ -790,3 +790,1059 @@ TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
 [0;34mGlobal branch file churn scale:[0m 4787
 [0;34mConformant CC structured titles:[0m 0 / 79
 
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_135932.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_135932.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140046.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140046.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140110.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140110.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140131.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140131.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140139.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140139.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140154.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140154.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140205.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140205.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140215.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140215.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140225.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140225.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140233.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140233.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140243.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140243.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
+
+[0;36m========================================[0m
+[0;36m  GIT ANALYZER :: arisuuuu010[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m Verifying target repository...
+[0;32m[✓][0m Git repository found at: .
+[0;34m[INFO][0m Verifying target branch...
+[0;32m[✓][0m Branch 'blackhatbash' verified successfully
+
+[0;36m========================================[0m
+[0;36m  EXTRACTING COMMIT HISTORY DATA[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m Metadata extracted successfully
+
+[0;36m========================================[0m
+[0;36m  CALCULATING PERFORMANCE METRICS[0m
+[0;36m========================================[0m
+
+[0;34m[INFO][0m 1/10 → Commit message clarity checks...
+[0;32m[✓][0m Score: 100 / 100
+[0;34m[INFO][0m 2/10 → Business hours compliance evaluation...
+[0;32m[✓][0m Score: 86 / 100  (In-hours: 69 | Off-hours: 11)
+[0;34m[INFO][0m 3/10 → Descriptive message text richness...
+[0;32m[✓][0m Score: 100 / 100  (Excellent: 80 | Acceptable: 0 | Poor: 0)
+[0;34m[INFO][0m 4/10 → Delivery frequency and timeline distribution...
+[0;32m[✓][0m Score: 95 / 100  (80 commits over 91 days)
+[0;34m[INFO][0m 5/10 → Affected file count atomic diversity...
+[0;32m[✓][0m Score: 96 / 100  (Files: 19 | Average: 0/commit)
+[0;34m[INFO][0m 6/10 → Line count diff size profile (churn status)...
+[0;32m[✓][0m Score: 98 / 100  (Total lines: 6065 | Average: 75/commit)
+[0;34m[INFO][0m 7/10 → Linear history compliance (merge tracking)...
+[0;32m[✓][0m Score: 100 / 100  (Merge commits intercepted: 0)
+[0;34m[INFO][0m 8/10 → Off-hours non-standard system activity...
+[0;32m[✓][0m Score: 95 / 100  (Late Night: 1 | Evening: 10 | Weekend: 1)
+[0;34m[INFO][0m 9/10 → Integrity pattern scan matching...
+[0;32m[✓][0m Score: 98 / 100  (Problematic flags matched: 3)
+[0;34m[INFO][0m 10/10 → Conventional Commits format standardization...
+[0;32m[✓][0m Score: 100 / 100  (Conformant: 0 / 80)
+
+[0;36m========================================[0m
+[0;36m  OVERALL SUMMARY RESULTS[0m
+[0;36m========================================[0m
+
+
+[0;35m╔════════════════════════════════════════╗[0m
+[0;35m║[0m     OVERALL SCORE: [0;32m96/100[0m[0;35m              ║[0m
+[0;35m║[0m     Final Grade:   [1;33mEXCELLENT (A)[0m[0;35m      ║[0m
+[0;35m╚════════════════════════════════════════╝[0m
+
+
+[0;36m========================================[0m
+[0;36m  EXPORTING METRIC REPORTS[0m
+[0;36m========================================[0m
+
+[0;32m[✓][0m JSON Export → ./reportes_arisuuuu010/report_20260617_140304.json
+[0;32m[✓][0m HTML Export → ./reportes_arisuuuu010/report_20260617_140304.html
+
+[0;36m=== METRICS ACCOUNTING OVERVIEW ===[0m
+
+METRIC ITEM                                | SCORE | WEIGHT%
+────────────────────────────────────────── | ───── | ─────
+1.  Commit message validation check        |   100 |    15
+2.  Work hour schedule compliance          |    86 |    15
+3.  Description completeness richness      |   100 |    15
+4.  Delivery frequency consistency         |    95 |    10
+5.  File tracking variance diversity       |    96 |    10
+6.  Diff line scale profiles (churn)       |    98 |    10
+7.  Linear branch compliance (merges)      |   100 |     5
+8.  Off-hours activity tracking            |    95 |     5
+9.  Code base structural integrity         |    98 |    10
+10. Conventional Commits syntax layout     |   100 |     5
+────────────────────────────────────────── | ───── | ─────
+TOTAL WEIGHTED SCORE OUTCOME               |    96 |   100
+
+
+[0;36m========================================[0m
+[0;36m  TECHNICAL DATA ENGINE DETAILS[0m
+[0;36m========================================[0m
+
+[0;34mTotal branch commits:[0m       80
+[0;34mActive days tracking range:[0m 91 days
+[0;34mAverage daily commit density:[0m 0
+[0;34mTotal distinct files touched:[0m 19
+[0;34mGlobal branch file churn scale:[0m 6065
+[0;34mConformant CC structured titles:[0m 0 / 80
+
