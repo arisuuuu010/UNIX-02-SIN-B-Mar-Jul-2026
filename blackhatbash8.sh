@@ -31,5 +31,30 @@ ls -lh newlog.txt
 grep -i "Godzilla" newlog.txt
 sed 's/ //g' log.txt
 sed '1d' log.txt
+sed '$d' log.txt
 sed -n '2,15 p' log.txt
 sed -i '1d' log.txt
+
+#[Ariel_Yumbillo] /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 ok $ 
+#We can use sleep 100 and execute 
+sleep 100 &
+#[1] 25737
+
+
+#[Ariel_Yumbillo] /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 ok $ 
+#Lists all running processes and filters for the word "sleep".
+ps -ef | grep sleep
+#root           1       0  0 12:12 ?        00:00:00 /bin/sh -c echo Container started trap "exit 0" 15  exec "$@" while sleep 1 & wait $!; do :; done -
+#root       25737     346  0 13:13 pts/0    00:00:00 sleep 100
+#root       25843       1  0 13:13 ?        00:00:00 sleep 1
+#root       25850     346  0 13:13 pts/0    00:00:00 grep --color=auto sleep
+
+#[Ariel_Yumbillo] /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 ok $
+#Shows tasks currently managed by this specific shell session. 
+jobs
+#[1]+  Ejecutando                 sleep 100 &
+
+#[Ariel_Yumbillo] /workspaces/UNIX-02-SIN-B-Mar-Jul-2026 ok $ 
+#'fg' (foreground) takes Job ID 1 (%1) and brings it to the front.
+fg %1
+#sleep 100
