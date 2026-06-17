@@ -58,3 +58,6 @@ jobs
 #'fg' (foreground) takes Job ID 1 (%1) and brings it to the front.
 fg %1
 #sleep 100
+
+chmod 777 exercise2.sh
+nohup ./exercise2.sh &
