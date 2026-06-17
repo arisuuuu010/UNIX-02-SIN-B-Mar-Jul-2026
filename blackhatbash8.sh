@@ -29,3 +29,7 @@ sed 's/Modzilla/Godzilla/g' log.txt
 sed 's/mozilla/Godzilla/gi' log.txt > newlog.txt
 ls -lh newlog.txt
 grep -i "Godzilla" newlog.txt
+sed 's/ //g' log.txt
+sed '1d' log.txt
+sed -n '2,15 p' log.txt
+sed -i '1d' log.txt
