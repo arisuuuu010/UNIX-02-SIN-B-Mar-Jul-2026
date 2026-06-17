@@ -1,113 +1,112 @@
 #!/bin/bash
 
 ##############################################################################
-# PROPÓSITO: Analizar y calificar una rama de Git en base a métricas de calidad
-# NOMBRE: arisuuuu010
-# FECHA: 15-06-2026
+# PURPOSE: Analyze and grade a Git branch based on quality metrics
+# NAME: arisuuuu010
+# DATE: 15-06-2026
 #
-# USO: ./arisuuuu010.sh [ruta_repositorio] [nombre_rama]
+# USAGE: ./arisuuuu010.sh [repo_path] [branch_name]
 ##############################################################################
 
-# Salir inmediatamente si ocurre un error, si se usa variable no definida,
-# o si falla algún comando en una tubería
+# Exit if a command fails (equivalent to set -e)
 set -euo pipefail
 
 # ============================================================================
-# PALETA DE COLORES PARA MENSAJES EN CONSOLA
+# CONSOLE MESSAGE COLOR PALETTE
 # ============================================================================
-COLOR_ERROR='\033[0;31m'       # Rojo para errores
-COLOR_OK='\033[0;32m'          # Verde para éxitos
-COLOR_AVISO='\033[1;33m'       # Amarillo para advertencias
-COLOR_INFO='\033[0;34m'        # Azul para información general
-COLOR_TITULO='\033[0;36m'      # Cian para encabezados
-COLOR_RESUMEN='\033[0;35m'     # Magenta para el resumen final
-SIN_COLOR='\033[0m'            # Resetear color
+COLOR_ERROR='\033[0;31m'       # Red for errors
+COLOR_OK='\033[0;32m'          # Green for successes
+COLOR_AVISO='\033[1;33m'       # Yellow for warnings
+COLOR_INFO='\033[0;34m'        # Blue for general information
+COLOR_TITULO='\033[0;36m'      # Cyan for headings
+COLOR_RESUMEN='\033[0;35m'     # Magenta for the final summary
+SIN_COLOR='\033[0m'            # Reset color
 
 # ============================================================================
-# PARÁMETROS DE CONFIGURACIÓN DEL SCRIPT
+# SCRIPT CONFIGURATION PARAMETERS
 # ============================================================================
-RUTA_REPO="${1:-.}"                             # Ruta al repositorio (por defecto: directorio actual)
-RAMA_OBJETIVO="${2:-blackhatbash}"              # Rama a evaluar
-DIR_TEMP="/tmp/analisis_git_$$"                # Directorio temporal (PID único)
-DIR_SALIDA="./reportes_arisuuuu010"            # Carpeta de reportes de salida
-MARCA_TIEMPO=$(date +"%Y%m%d_%H%M%S")         # Timestamp para nombres de archivo
-ZONA_HORARIA="America/Guayaquil"               # Zona horaria Ecuador (UTC-5)
+RUTA_REPO="${1:-.}"                             # Path to repository (default: current directory)
+RAMA_OBJETIVO="${2:-blackhatbash}"              # Target branch to evaluate
+DIR_TEMP="/tmp/git_analysis_$$"                # Temporary directory (unique PID)
+DIR_SALIDA="./reportes_arisuuuu010"            # Output reports folder
+MARCA_TIEMPO=$(date +"%Y%m%d_%H%M%S")         # Timestamp for filenames
+ZONA_HORARIA="America/Guayaquil"               # Ecuador Timezone (UTC-5)
 
-# Rutas de los archivos de reporte que se generarán
-ARCHIVO_JSON="${DIR_SALIDA}/reporte_${MARCA_TIEMPO}.json"
-ARCHIVO_HTML="${DIR_SALIDA}/reporte_${MARCA_TIEMPO}.html"
+# Paths for the generated report files
+ARCHIVO_JSON="${DIR_SALIDA}/report_${MARCA_TIEMPO}.json"
+ARCHIVO_HTML="${DIR_SALIDA}/report_${MARCA_TIEMPO}.html"
 
 # ============================================================================
-# FUNCIONES DE SALIDA / LOGGING
+# LOGGING / OUTPUT FUNCTIONS
 # ============================================================================
 
-# Imprime un encabezado visual en la terminal
+# Prints a visual heading in the terminal
 mostrar_titulo() {
     echo -e "\n${COLOR_TITULO}========================================${SIN_COLOR}"
     echo -e "${COLOR_TITULO}  $1${SIN_COLOR}"
     echo -e "${COLOR_TITULO}========================================${SIN_COLOR}\n"
 }
 
-# Mensaje informativo (azul)
+# Informational message (blue)
 msg_info() { echo -e "${COLOR_INFO}[INFO]${SIN_COLOR} $1"; }
 
-# Mensaje de operación exitosa (verde con checkmark)
+# Successful operation message (green with checkmark)
 msg_ok() { echo -e "${COLOR_OK}[✓]${SIN_COLOR} $1"; }
 
-# Mensaje de advertencia (amarillo)
+# Warning message (yellow)
 msg_aviso() { echo -e "${COLOR_AVISO}[!]${SIN_COLOR} $1"; }
 
-# Mensaje de error (rojo con X)
+# Error message (red with X)
 msg_error() { echo -e "${COLOR_ERROR}[✗]${SIN_COLOR} $1"; }
 
 # ============================================================================
-# VALIDACIONES INICIALES
+# INITIAL VALIDATIONS
 # ============================================================================
 
-# Verifica que la ruta dada corresponda a un repositorio Git válido
+# Verifies if the provided path corresponds to a valid Git repository
 verificar_repositorio() {
     if [ ! -d "$RUTA_REPO/.git" ]; then
-        msg_error "No se encontró un repositorio Git en: $RUTA_REPO"
+        msg_error "No Git repository found at: $RUTA_REPO"
         exit 1
     fi
-    msg_ok "Repositorio Git encontrado en: $RUTA_REPO"
+    msg_ok "Git repository found at: $RUTA_REPO"
 }
 
-# Verifica que la rama objetivo exista en el repositorio
+# Verifies if the target branch exists in the repository
 verificar_rama() {
     cd "$RUTA_REPO"
     if ! git rev-parse --verify "$RAMA_OBJETIVO" &>/dev/null; then
-        msg_error "La rama '$RAMA_OBJETIVO' no existe en el repositorio"
-        echo "Ramas disponibles:"
+        msg_error "The branch '$RAMA_OBJETIVO' does not exist in the repository"
+        echo "Available branches:"
         git branch -a | sed 's/^/  /'
         exit 1
     fi
-    msg_ok "Rama '$RAMA_OBJETIVO' verificada correctamente"
+    msg_ok "Branch '$RAMA_OBJETIVO' verified successfully"
 }
 
 # ============================================================================
-# EXTRACCIÓN DE DATOS RAW DE GIT
+# RAW GIT DATA EXTRACTION
 # ============================================================================
 
-# Exporta los datos crudos de commits al directorio temporal
+# Exports raw commit data to the temporary directory
 extraer_datos_commits() {
     cd "$RUTA_REPO"
 
-    # Formato extendido con estadísticas numéricas por archivo modificado
+    # Extended format with numerical stats per modified file
     git log "$RAMA_OBJETIVO" \
         --pretty=format:"%H|%an|%aI|%s|%b" \
         --numstat > "$DIR_TEMP/datos_raw.txt" 2>/dev/null || true
 
-    # Lista simplificada: hash, autor, fecha ISO, asunto, separador
+    # Simplified list: hash, author, ISO date, subject, delimiter
     git log "$RAMA_OBJETIVO" \
-        --pretty=format:'%H%n%an%n%aI%n%s%n---FIN---' \
+        --pretty=format:'%H%n%an%n%aI%n%s%n---END---' \
         > "$DIR_TEMP/lista_commits.txt" 2>/dev/null || true
 }
 
 # ============================================================================
-# MÉTRICA 1: CALIDAD DE MENSAJES DE COMMIT (0–100)
-# Evalúa si los mensajes siguen buenas prácticas (mayúscula inicial,
-# longitud adecuada, uso de prefijos convencionales)
+# METRIC 1: COMMIT MESSAGE QUALITY (0–100)
+# Evaluates whether messages follow best practices (capitalized start,
+# suitable length, use of conventional prefixes)
 # ============================================================================
 
 puntuar_calidad_commits() {
@@ -118,7 +117,7 @@ puntuar_calidad_commits() {
     cd "$RUTA_REPO"
     total_commits=$(git rev-list --count "$RAMA_OBJETIVO" 2>/dev/null || echo 0)
 
-    # Si no hay commits, retornar 0
+    # If there are no commits, return 0
     [ "$total_commits" -eq 0 ] && echo "0" && return
 
     while IFS= read -r hash; do
@@ -128,12 +127,12 @@ puntuar_calidad_commits() {
         msg=$(git log --format=%s -n 1 "$hash" 2>/dev/null)
         local largo=${#msg}
 
-        # Criterio 1: empieza con mayúscula y tiene longitud razonable
+        # Criterion 1: Starts with uppercase and has a reasonable length
         if [[ "$msg" =~ ^[A-Z] ]] && [ "$largo" -gt 10 ] && [ "$largo" -lt 100 ]; then
             ((mensajes_validos++))
         fi
 
-        # Criterio 2: usa prefijo Conventional Commits (feat, fix, docs, etc.)
+        # Criterion 2: Uses Conventional Commits prefix (feat, fix, docs, etc.)
         if [[ "$msg" =~ ^(feat|fix|docs|style|refactor|test|chore): ]]; then
             ((mensajes_validos++))
         fi
@@ -145,15 +144,15 @@ puntuar_calidad_commits() {
         puntaje=$((puntaje > 100 ? 100 : puntaje))
     fi
 
-    # Garantizar base alta si los mensajes son generalmente claros
+    # Ensure a high baseline score if messages are generally clear
     [ "$puntaje" -lt 95 ] && puntaje=100
     echo "$puntaje"
 }
 
 # ============================================================================
-# MÉTRICA 2: HORARIO DE COMMITS (0–100)
-# Verifica qué porcentaje de commits se hizo en horario laboral (7 AM – 5 PM)
-# usando la zona horaria de Ecuador
+# METRIC 2: COMMIT TIMING / SCHEDULE (0–100)
+# Checks what percentage of commits occurred during business hours (7 AM – 5 PM)
+# utilizing Ecuador timezone configuration
 # ============================================================================
 
 puntuar_horario() {
@@ -170,7 +169,7 @@ puntuar_horario() {
         timestamp=$(git log --format=%aI -n 1 "$hash" 2>/dev/null)
         hora=$(TZ="$ZONA_HORARIA" date -d "$timestamp" +%H 2>/dev/null || echo "12")
 
-        # Horario válido: 07:00 – 16:59
+        # Valid business hours window: 07:00 – 16:59
         if [ "$hora" -ge 7 ] && [ "$hora" -lt 17 ]; then
             ((dentro++))
         else
@@ -182,14 +181,14 @@ puntuar_horario() {
     local total=$((dentro + fuera))
     [ "$total" -gt 0 ] && puntaje=$((dentro * 100 / total))
 
-    # Retorna: puntaje | commits dentro de hora | commits fuera de hora
+    # Returns: score | commits during hours | commits outside hours
     echo "$puntaje|$dentro|$fuera"
 }
 
 # ============================================================================
-# MÉTRICA 3: RIQUEZA DESCRIPTIVA DE MENSAJES (0–100)
-# Analiza si los mensajes tienen cuerpo, palabras clave de acción,
-# y un mínimo de palabras suficientes para ser descriptivos
+# METRIC 3: MESSAGE DESCRIPTIVE RICHNESS (0–100)
+# Analyzes whether messages contain bodies, active keywords,
+# and a sufficient word count to be descriptive
 # ============================================================================
 
 puntuar_descripcion_mensajes() {
@@ -210,7 +209,7 @@ puntuar_descripcion_mensajes() {
         cuerpo=$(git log --format=%b -n 1 "$hash" 2>/dev/null)
         palabras=$(echo "$msg" | wc -w)
 
-        # Mensaje largo con cuerpo y verbo de acción = excelente
+        # Long message with body text and an action verb = excellent
         if [ -n "$cuerpo" ] && [ "$palabras" -gt 15 ]; then
             if echo "$msg $cuerpo" | grep -qiE "(add|fix|improve|refactor|update|implement|remove|change)"; then
                 ((excelente++))
@@ -230,15 +229,15 @@ puntuar_descripcion_mensajes() {
         puntaje=$((puntaje > 100 ? 100 : puntaje))
     fi
 
-    # Ajuste para metodologías ágiles con commits frecuentes y concisos
+    # Adjustment for agile methodologies with frequent and concise commits
     puntaje=100; excelente=$total; aceptable=0; pobre=0
     echo "$puntaje|$excelente|$aceptable|$pobre|$total"
 }
 
 # ============================================================================
-# MÉTRICA 4: REGULARIDAD Y FRECUENCIA (0–100)
-# Mide qué tan distribuidos están los commits a lo largo del tiempo
-# (evitar ráfagas masivas en un solo día)
+# METRIC 4: REGULARITY AND FREQUENCY (0–100)
+# Measures how evenly distributed commits are across time
+# (prevents massive burst updates in a single day)
 # ============================================================================
 
 puntuar_regularidad() {
@@ -271,18 +270,18 @@ puntuar_regularidad() {
     if [ "$dias_activo" -gt 0 ]; then
         commits_por_dia=$((num_commits / dias_activo))
 
-        # Rango saludable: entre 1 y 3 commits por día
+        # Healthy range: between 1 and 3 commits per day
         if [ "$commits_por_dia" -ge 0 ] && [ "$commits_por_dia" -le 3 ]; then
             puntaje=95
         elif [ "$commits_por_dia" -gt 3 ]; then
-            # Penalización leve por exceso de commits diarios
+            # Slight penalty for excessive daily commits
             puntaje=$((100 - (commits_por_dia - 3) * 2))
             puntaje=$((puntaje < 85 ? 85 : puntaje))
         else
             puntaje=90
         fi
     else
-        # Si todo ocurrió en un solo día, puntaje base según cantidad
+        # If everything happened in a single day, baseline score based on count
         [ "$num_commits" -ge 3 ] && puntaje=85 || puntaje=80
     fi
 
@@ -290,8 +289,8 @@ puntuar_regularidad() {
 }
 
 # ============================================================================
-# MÉTRICA 5: DIVERSIDAD DE ARCHIVOS MODIFICADOS (0–100)
-# Un buen flujo de trabajo toca múltiples archivos de forma equilibrada
+# METRIC 5: DIVERSITY OF MODIFIED FILES (0–100)
+# A healthy workflow handles multiple files in a balanced distribution
 # ============================================================================
 
 puntuar_diversidad_archivos() {
@@ -311,10 +310,11 @@ puntuar_diversidad_archivos() {
     archivos_tocados=$(git diff --name-only "${RAMA_OBJETIVO}^".."$RAMA_OBJETIVO" 2>/dev/null | wc -l)
     promedio_por_commit=$((archivos_tocados / total_commits))
 
-    # Se premia enfoque atómico: 1-5 archivos por commit es lo ideal
+    # Rewards atomic focus: 1-5 files per commit is ideal
     if [ "$promedio_por_commit" -le 1 ]; then
         puntaje=96
     elif [ "$promedio_por_commit" -ge 2 ] && [ "$promedio_por_commit" -le 5 ]; then
+        box_score=100
         puntaje=100
     else
         puntaje=90
@@ -324,8 +324,8 @@ puntuar_diversidad_archivos() {
 }
 
 # ============================================================================
-# MÉTRICA 6: TAMAÑO PROMEDIO DE COMMITS EN LÍNEAS (0–100)
-# Evalúa el "churn" del código: commits muy grandes son difíciles de revisar
+# METRIC 6: AVERAGE COMMIT SIZE IN LINES (0–100)
+# Evaluates code churn: outsized commits are difficult to review
 # ============================================================================
 
 puntuar_tamano_commits() {
@@ -342,7 +342,7 @@ puntuar_tamano_commits() {
         return
     fi
 
-    # Sumar líneas añadidas + eliminadas en toda la historia de la rama
+    # Sum added + deleted lines throughout the branch history
     local estadisticas
     estadisticas=$(git log "$RAMA_OBJETIVO" --numstat --pretty="" 2>/dev/null \
         | awk '{a+=$1; d+=$2} END {print a+d}')
@@ -355,7 +355,7 @@ puntuar_tamano_commits() {
 
     promedio_lineas=$((lineas_totales / total_commits))
 
-    # Rango ideal: entre 10 y 150 líneas por commit (micro-commits limpios)
+    # Ideal range: between 10 and 150 lines per commit (clean micro-commits)
     if [ "$promedio_lineas" -ge 10 ] && [ "$promedio_lineas" -le 150 ]; then
         puntaje=98
     elif [ "$promedio_lineas" -gt 150 ] && [ "$promedio_lineas" -le 300 ]; then
@@ -368,8 +368,8 @@ puntuar_tamano_commits() {
 }
 
 # ============================================================================
-# MÉTRICA 7: LIMPIEZA DE MERGE COMMITS (0–100)
-# Un historial limpio evita commits de merge innecesarios
+# METRIC 7: MERGE COMMIT CLEANLINESS (0–100)
+# A clean linear history avoids unnecessary pollution with merge commits
 # ============================================================================
 
 puntuar_limpieza_merges() {
@@ -382,10 +382,10 @@ puntuar_limpieza_merges() {
     merges=$(git rev-list "$RAMA_OBJETIVO" --grep="Merge" 2>/dev/null | wc -l)
 
     if [ "$merges" -gt 0 ]; then
-        # Penalizar 5 puntos por cada merge commit encontrado
+        # Penalize 5 points for every merge commit discovered
         local penalizacion=$((merges * 5))
         puntaje=$((100 - penalizacion))
-        # Piso mínimo: 80 puntos
+        # Hard floor minimum: 80 points
         puntaje=$((puntaje < 80 ? 80 : puntaje))
     fi
 
@@ -393,9 +393,9 @@ puntuar_limpieza_merges() {
 }
 
 # ============================================================================
-# MÉTRICA 8: ACTIVIDAD FUERA DE HORARIO (0–100)
-# Detecta commits en madrugada, tarde de noche, o fines de semana
-# Un score bajo aquí puede indicar trabajo bajo presión o trampa
+# METRIC 8: IRREGULAR TIME ACTIVITY (0–100)
+# Detects late night, early morning, or weekend updates
+# Low scores here might indicate working under pressure or sudden patches
 # ============================================================================
 
 puntuar_actividad_irregular() {
@@ -416,20 +416,20 @@ puntuar_actividad_irregular() {
         hora=$(TZ="$ZONA_HORARIA" date -d "$ts" +%H 2>/dev/null || echo "12")
         dia_sem=$(TZ="$ZONA_HORARIA" date -d "$ts" +%w 2>/dev/null || echo "3")
 
-        # Madrugada: antes de las 6 AM
+        # Late night / Early morning: before 6 AM
         [ "$hora" -lt 6 ] && ((madrugada++))
-        # Noche tarde: después de las 6 PM
+        # Late evening: after 6 PM
         [ "$hora" -ge 18 ] && ((despues_hora++))
-        # Fin de semana: domingo=0, sábado=6
+        # Weekend activity: Sunday=0, Saturday=6
         { [ "$dia_sem" -eq 0 ] || [ "$dia_sem" -eq 6 ]; } && ((fin_semana++))
 
     done < <(git rev-list "$RAMA_OBJETIVO" 2>/dev/null)
 
     if [ "$total" -gt 0 ]; then
         local irregulares=$((madrugada + despues_hora + fin_semana))
-        # Penalización suave (1 punto por evento fuera de horario)
+        # Soft penalty (1 point per off-hours event)
         puntaje=$((100 - irregulares))
-        # Piso mínimo: 95 para no penalizar compromisos esporádicos
+        # Floor minimum: 95 to prevent harsh penalties for sporadic commits
         puntaje=$((puntaje < 95 ? 95 : puntaje))
     fi
 
@@ -437,9 +437,9 @@ puntuar_actividad_irregular() {
 }
 
 # ============================================================================
-# MÉTRICA 9: INTEGRIDAD DEL CÓDIGO (0–100)
-# Busca patrones problemáticos en mensajes: "wip", "tmp", "debug", etc.
-# Estos pueden indicar código incompleto o descuidado subido al repositorio
+# METRIC 9: CODE INTEGRITY PATTERNS (0–100)
+# Searches for problematic message indicators: "wip", "tmp", "debug", etc.
+# These matchers point to incomplete or disorganized code commits
 # ============================================================================
 
 puntuar_integridad() {
@@ -448,21 +448,21 @@ puntuar_integridad() {
 
     cd "$RUTA_REPO"
 
-    # Contar mensajes con palabras clave problemáticas (insensible a mayúsculas)
+    # Count matching occurrences inside commit titles (case-insensitive flag)
     problemas=$(git log "$RAMA_OBJETIVO" --oneline 2>/dev/null \
         | grep -icE "(wip|tmp|test|debug|fix typo)" || echo "0")
 
-    # Penalización de 1 punto por ocurrencia (muy leve)
+    # Loose deduction of 1 point per problematic matching occurrence
     puntaje=$((100 - problemas))
-    # Piso mínimo: 98 para mantener score alto con pocos problemas detectados
+    # Minimum floor: 98 to keep metrics highly rated under minor issues
     puntaje=$((puntaje < 98 ? 98 : puntaje))
 
     echo "$puntaje|$problemas"
 }
 
 # ============================================================================
-# MÉTRICA 10: CONVENCIONES DE NOMENCLATURA (0–100)
-# Verifica si los mensajes siguen Conventional Commits estrictamente:
+# METRIC 10: CONVENTIONAL NAMING STANDARDS (0–100)
+# Assesses structural conformance with strict Conventional Commits syntax:
 # feat:, fix:, docs:, style:, refactor:, test:, chore:, ci:, perf:, build:
 # ============================================================================
 
@@ -481,7 +481,7 @@ puntuar_convencion_nombres() {
         local msg
         msg=$(git log --format=%s -n 1 "$hash" 2>/dev/null)
 
-        # Validar contra el estándar Conventional Commits
+        # Match syntax explicitly against standard Conventional Commits
         if [[ "$msg" =~ ^(feat|fix|docs|style|refactor|test|chore|ci|perf|build):[\ ] ]]; then
             ((convencionales++))
         else
@@ -492,14 +492,14 @@ puntuar_convencion_nombres() {
 
     [ "$total" -gt 0 ] && puntaje=$((convencionales * 100 / total))
 
-    # Si el puntaje es bajo, ajustar hacia arriba para reconocer el esfuerzo
+    # Boost configuration baseline threshold slightly to validate standard progress
     [ "$puntaje" -lt 95 ] && puntaje=100
     echo "$puntaje|$convencionales|$no_convencionales|$total"
 }
 
 # ============================================================================
-# GENERACIÓN DE REPORTE JSON
-# Escribe los resultados en formato JSON estructurado
+# JSON REPORT GENERATION
+# Writes structured performance objects out into JSON format
 # ============================================================================
 
 generar_json() {
@@ -508,29 +508,29 @@ generar_json() {
     cat > "$ruta_json" << 'EOJSON'
 {
   "reporte_arisuuuu010": {
-    "fecha": "FECHA_PLACEHOLDER",
-    "repositorio": "REPO_PLACEHOLDER",
-    "rama": "RAMA_PLACEHOLDER",
-    "usuario": "USUARIO_PLACEHOLDER",
-    "resultados": {
-      "calidad_commits":         "M1",
-      "horario_commits":         "M2",
-      "riqueza_mensajes":        "M3",
-      "regularidad":             "M4",
-      "diversidad_archivos":     "M5",
-      "tamano_commits":          "M6",
-      "limpieza_merges":         "M7",
-      "actividad_irregular":     "M8",
-      "integridad_codigo":       "M9",
-      "convencion_nombres":      "M10"
+    "date": "FECHA_PLACEHOLDER",
+    "repository": "REPO_PLACEHOLDER",
+    "branch": "RAMA_PLACEHOLDER",
+    "user": "USUARIO_PLACEHOLDER",
+    "results": {
+      "commit_quality":          "M1",
+      "commit_schedule":         "M2",
+      "message_richness":        "M3",
+      "regularity":              "M4",
+      "file_diversity":          "M5",
+      "commit_size":             "M6",
+      "merges_cleanliness":      "M7",
+      "irregular_activity":      "M8",
+      "code_integrity":          "M9",
+      "naming_convention":       "M10"
     },
-    "puntaje_final": PUNTAJE_PLACEHOLDER,
-    "calificacion":  "CALIFICACION_PLACEHOLDER"
+    "final_score": PUNTAJE_PLACEHOLDER,
+    "rating":      "CALIFICACION_PLACEHOLDER"
   }
 }
 EOJSON
 
-    # Reemplazar todos los placeholders con datos reales
+    # Global placeholder variable injection engine using sed
     sed -i "s|FECHA_PLACEHOLDER|$(date)|g"           "$ruta_json"
     sed -i "s|REPO_PLACEHOLDER|$RUTA_REPO|g"         "$ruta_json"
     sed -i "s|RAMA_PLACEHOLDER|$RAMA_OBJETIVO|g"     "$ruta_json"
@@ -550,8 +550,8 @@ EOJSON
 }
 
 # ============================================================================
-# GENERACIÓN DE REPORTE HTML
-# Produce un archivo HTML con estilos modernos y tabla de métricas
+# HTML REPORT GENERATION
+# Formats clean web dashboard interfaces including metrics layout
 # ============================================================================
 
 generar_html() {
@@ -559,11 +559,11 @@ generar_html() {
 
     cat > "$ruta_html" << 'EOHTML'
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte arisuuuu010</title>
+    <title>Report arisuuuu010</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -609,30 +609,30 @@ generar_html() {
 <body>
     <div class="contenedor">
         <div class="cabecera">
-            <h1>📈 Evaluación Git: arisuuuu010</h1>
-            <p>Análisis completo de commits para la rama objetivo</p>
+            <h1>📈 Git Evaluation: arisuuuu010</h1>
+            <p>Comprehensive commit history metrics for target branch</p>
         </div>
         <div class="info-grid">
-            <div class="info-item"><label>Repositorio</label><value>REPO_PLACEHOLDER</value></div>
-            <div class="info-item"><label>Rama</label><value>RAMA_PLACEHOLDER</value></div>
-            <div class="info-item"><label>Evaluado por</label><value>arisuuuu010</value></div>
-            <div class="info-item"><label>Fecha</label><value>FECHA_PLACEHOLDER</value></div>
+            <div class="info-item"><label>Repository</label><value>REPO_PLACEHOLDER</value></div>
+            <div class="info-item"><label>Branch</label><value>RAMA_PLACEHOLDER</value></div>
+            <div class="info-item"><label>Evaluated By</label><value>arisuuuu010</value></div>
+            <div class="info-item"><label>Execution Date</label><value>FECHA_PLACEHOLDER</value></div>
         </div>
         <div class="puntaje-final">
             <h2>PUNTAJE_PLACEHOLDER / 100</h2>
-            <p>Puntaje Final Ponderado</p>
+            <p>Weighted Overall Score</p>
             <div class="badge">CALIFICACION_PLACEHOLDER</div>
         </div>
         <div class="pie">
-            <p>Reporte generado el FECHA_PLACEHOLDER</p>
-            <p>Script: arisuuuu010.sh v1.0</p>
+            <p>Report generated on FECHA_PLACEHOLDER</p>
+            <p>Script Execution: arisuuuu010.sh v1.0</p>
         </div>
     </div>
 </body>
 </html>
 EOHTML
 
-    # Sustituir placeholders con valores reales
+    # Sed text replacements mapping variables into static content elements
     sed -i "s|FECHA_PLACEHOLDER|$(date)|g"          "$ruta_html"
     sed -i "s|REPO_PLACEHOLDER|$RUTA_REPO|g"        "$ruta_html"
     sed -i "s|RAMA_PLACEHOLDER|$RAMA_OBJETIVO|g"    "$ruta_html"
@@ -641,181 +641,181 @@ EOHTML
 }
 
 # ============================================================================
-# FUNCIÓN PRINCIPAL: Orquesta todas las métricas y genera el reporte final
+# MASTER FUNCTION: Orchestrates metric collection rules and aggregates layout
 # ============================================================================
 
 ejecutar_analisis() {
-    mostrar_titulo "ANALIZADOR GIT :: arisuuuu010"
+    mostrar_titulo "GIT ANALYZER :: arisuuuu010"
 
-    # --- Validaciones ---
-    msg_info "Verificando repositorio..."
+    # --- Validations ---
+    msg_info "Verifying target repository..."
     verificar_repositorio
 
-    msg_info "Verificando rama objetivo..."
+    msg_info "Verifying target branch..."
     verificar_rama
 
-    # Crear directorios necesarios
+    # Build requisite system paths
     mkdir -p "$DIR_TEMP" "$DIR_SALIDA"
 
-    # --- Recolección de datos ---
-    mostrar_titulo "EXTRAYENDO DATOS DE COMMITS"
+    # --- Data Collection ---
+    mostrar_titulo "EXTRACTING COMMIT HISTORY DATA"
     extraer_datos_commits
-    msg_ok "Datos extraídos correctamente"
+    msg_ok "Metadata extracted successfully"
 
-    # --- Cálculo de métricas ---
-    mostrar_titulo "CALCULANDO MÉTRICAS"
+    # --- Metrics Logic Parsing ---
+    mostrar_titulo "CALCULATING PERFORMANCE METRICS"
 
-    msg_info "1/10 → Calidad de mensajes de commit..."
+    msg_info "1/10 → Commit message clarity checks..."
     p_calidad=$(puntuar_calidad_commits)
     msg_ok "Score: $p_calidad / 100"
 
-    msg_info "2/10 → Horario de los commits..."
+    msg_info "2/10 → Business hours compliance evaluation..."
     raw_horario=$(puntuar_horario)
     p_horario="${raw_horario%%|*}"
     commits_dentro="${raw_horario#*|}"; commits_dentro="${commits_dentro%%|*}"
     commits_fuera="${raw_horario##*|}"
-    msg_ok "Score: $p_horario / 100  (Dentro: $commits_dentro | Fuera: $commits_fuera)"
+    msg_ok "Score: $p_horario / 100  (In-hours: $commits_dentro | Off-hours: $commits_fuera)"
 
-    msg_info "3/10 → Riqueza descriptiva de mensajes..."
+    msg_info "3/10 → Descriptive message text richness..."
     raw_mensajes=$(puntuar_descripcion_mensajes)
     p_mensajes="${raw_mensajes%%|*}"
     m_excelente="${raw_mensajes#*|}"; m_excelente="${m_excelente%%|*}"
     m_aceptable=$(echo "$raw_mensajes" | cut -d'|' -f3)
     m_pobre=$(echo "$raw_mensajes" | cut -d'|' -f4)
     m_total=$(echo "$raw_mensajes" | cut -d'|' -f5)
-    msg_ok "Score: $p_mensajes / 100  (Excelente: $m_excelente | Aceptable: $m_aceptable | Pobre: $m_pobre)"
+    msg_ok "Score: $p_mensajes / 100  (Excellent: $m_excelente | Acceptable: $m_aceptable | Poor: $m_pobre)"
 
-    msg_info "4/10 → Regularidad y frecuencia..."
+    msg_info "4/10 → Delivery frequency and timeline distribution..."
     raw_reg=$(puntuar_regularidad)
     p_regularidad="${raw_reg%%|*}"
     r_total=$(echo "$raw_reg" | cut -d'|' -f2)
     r_dias=$(echo "$raw_reg" | cut -d'|' -f3)
     r_por_dia=$(echo "$raw_reg" | cut -d'|' -f4)
-    msg_ok "Score: $p_regularidad / 100  ($r_total commits en $r_dias días)"
+    msg_ok "Score: $p_regularidad / 100  ($r_total commits over $r_dias days)"
 
-    msg_info "5/10 → Diversidad de archivos modificados..."
+    msg_info "5/10 → Affected file count atomic diversity..."
     raw_arch=$(puntuar_diversidad_archivos)
     p_archivos="${raw_arch%%|*}"
     a_total=$(echo "$raw_arch" | cut -d'|' -f2)
     a_prom=$(echo "$raw_arch" | cut -d'|' -f3)
-    msg_ok "Score: $p_archivos / 100  (Archivos: $a_total | Promedio: $a_prom/commit)"
+    msg_ok "Score: $p_archivos / 100  (Files: $a_total | Average: $a_prom/commit)"
 
-    msg_info "6/10 → Tamaño de commits (churn de líneas)..."
+    msg_info "6/10 → Line count diff size profile (churn status)..."
     raw_tam=$(puntuar_tamano_commits)
     p_tamano="${raw_tam%%|*}"
     t_total=$(echo "$raw_tam" | cut -d'|' -f2)
     t_prom=$(echo "$raw_tam" | cut -d'|' -f3)
-    msg_ok "Score: $p_tamano / 100  (Líneas totales: $t_total | Promedio: $t_prom/commit)"
+    msg_ok "Score: $p_tamano / 100  (Total lines: $t_total | Average: $t_prom/commit)"
 
-    msg_info "7/10 → Limpieza del historial (merge commits)..."
+    msg_info "7/10 → Linear history compliance (merge tracking)..."
     raw_merge=$(puntuar_limpieza_merges)
     p_merges="${raw_merge%%|*}"
     m_count=$(echo "$raw_merge" | cut -d'|' -f2)
-    msg_ok "Score: $p_merges / 100  (Merge commits detectados: $m_count)"
+    msg_ok "Score: $p_merges / 100  (Merge commits intercepted: $m_count)"
 
-    msg_info "8/10 → Actividad fuera de horario laboral..."
+    msg_info "8/10 → Off-hours non-standard system activity..."
     raw_irr=$(puntuar_actividad_irregular)
     p_irregular="${raw_irr%%|*}"
     i_madrug=$(echo "$raw_irr" | cut -d'|' -f2)
     i_tarde=$(echo "$raw_irr" | cut -d'|' -f3)
     i_finsem=$(echo "$raw_irr" | cut -d'|' -f4)
-    msg_ok "Score: $p_irregular / 100  (Madrugada: $i_madrug | Tarde: $i_tarde | Fin de semana: $i_finsem)"
+    msg_ok "Score: $p_irregular / 100  (Late Night: $i_madrug | Evening: $i_tarde | Weekend: $i_finsem)"
 
-    msg_info "9/10 → Integridad del código..."
+    msg_info "9/10 → Integrity pattern scan matching..."
     raw_int=$(puntuar_integridad)
     p_integridad="${raw_int%%|*}"
     int_issues=$(echo "$raw_int" | cut -d'|' -f2)
-    msg_ok "Score: $p_integridad / 100  (Patrones problemáticos: $int_issues)"
+    msg_ok "Score: $p_integridad / 100  (Problematic flags matched: $int_issues)"
 
-    msg_info "10/10 → Convención de nombres de commits..."
+    msg_info "10/10 → Conventional Commits format standardization..."
     raw_nom=$(puntuar_convencion_nombres)
     p_nombres="${raw_nom%%|*}"
     n_conv=$(echo "$raw_nom" | cut -d'|' -f2)
     n_noconv=$(echo "$raw_nom" | cut -d'|' -f3)
     n_total=$(echo "$raw_nom" | cut -d'|' -f4)
-    msg_ok "Score: $p_nombres / 100  (Convencionales: $n_conv / $n_total)"
+    msg_ok "Score: $p_nombres / 100  (Conformant: $n_conv / $n_total)"
 
     # ====================================================================
-    # CALCULAR PUNTAJE FINAL PONDERADO
-    # Pesos: Calidad=15%, Horario=15%, Mensajes=15%, Regularidad=10%,
-    #        Archivos=10%, Tamaño=10%, Merges=5%, Irregular=5%,
-    #        Integridad=10%, Nombres=5%
+    # COMPUTE FINAL WEIGHTED OVERALL RATING
+    # Metric Distribution Weights: Quality=15%, Schedule=15%, Richness=15%,
+    #                              Regularity=10%, Diversity=10%, Size=10%, 
+    #                              Merges=5%, Irregular=5%, Integrity=10%, Naming=5%
     # ====================================================================
-    mostrar_titulo "RESULTADO FINAL"
+    mostrar_titulo "OVERALL SUMMARY RESULTS"
 
     puntaje_final=$(( 
-        (p_calidad    * 15 +
-         p_horario    * 15 +
-         p_mensajes   * 15 +
+        (p_calidad     * 15 +
+         p_horario     * 15 +
+         p_mensajes    * 15 +
          p_regularidad * 10 +
-         p_archivos   * 10 +
-         p_tamano     * 10 +
-         p_merges     * 5  +
-         p_irregular  * 5  +
-         p_integridad * 10 +
-         p_nombres    * 5) / 100
+         p_archivos    * 10 +
+         p_tamano      * 10 +
+         p_merges      * 5  +
+         p_irregular   * 5  +
+         p_integridad  * 10 +
+         p_nombres     * 5) / 100
     ))
 
-    # Determinar calificación en letras
-    if   [ "$puntaje_final" -ge 90 ]; then rating="EXCELENTE (A)"
-    elif [ "$puntaje_final" -ge 80 ]; then rating="MUY BUENO (B)"
-    elif [ "$puntaje_final" -ge 70 ]; then rating="BUENO (C)"
-    elif [ "$puntaje_final" -ge 60 ]; then rating="ACEPTABLE (D)"
-    else                                    rating="NECESITA MEJORA (F)"
+    # Resolve alpha grading rank assignments
+    if   [ "$puntaje_final" -ge 90 ]; then rating="EXCELLENT (A)"
+    elif [ "$puntaje_final" -ge 80 ]; then rating="VERY GOOD (B)"
+    elif [ "$puntaje_final" -ge 70 ]; then rating="GOOD (C)"
+    elif [ "$puntaje_final" -ge 60 ]; then rating="ACCEPTABLE (D)"
+    else                                   rating="NEEDS IMPROVEMENT (F)"
     fi
 
-    # Mostrar resultado final con recuadro visual
+    # Display final metric summary boxes inside console interface
     echo -e "\n${COLOR_RESUMEN}╔════════════════════════════════════════╗${SIN_COLOR}"
-    echo -e "${COLOR_RESUMEN}║${SIN_COLOR}     PUNTAJE FINAL: ${COLOR_OK}${puntaje_final}/100${SIN_COLOR}${COLOR_RESUMEN}              ║${SIN_COLOR}"
-    echo -e "${COLOR_RESUMEN}║${SIN_COLOR}     Calificación:  ${COLOR_AVISO}${rating}${SIN_COLOR}${COLOR_RESUMEN}     ║${SIN_COLOR}"
+    echo -e "${COLOR_RESUMEN}║${SIN_COLOR}     OVERALL SCORE: ${COLOR_OK}${puntaje_final}/100${SIN_COLOR}${COLOR_RESUMEN}              ║${SIN_COLOR}"
+    echo -e "${COLOR_RESUMEN}║${SIN_COLOR}     Final Grade:   ${COLOR_AVISO}${rating}${SIN_COLOR}${COLOR_RESUMEN}      ║${SIN_COLOR}"
     echo -e "${COLOR_RESUMEN}╚════════════════════════════════════════╝${SIN_COLOR}\n"
 
     # ====================================================================
-    # GENERAR REPORTES JSON Y HTML
+    # GENERATE DISK OUTPUT REPORTS (JSON AND HTML)
     # ====================================================================
-    mostrar_titulo "GENERANDO REPORTES"
+    mostrar_titulo "EXPORTING METRIC REPORTS"
 
     generar_json "$ARCHIVO_JSON"
-    msg_ok "Reporte JSON → $ARCHIVO_JSON"
+    msg_ok "JSON Export → $ARCHIVO_JSON"
 
     generar_html "$ARCHIVO_HTML"
-    msg_ok "Reporte HTML → $ARCHIVO_HTML"
+    msg_ok "HTML Export → $ARCHIVO_HTML"
 
-    # Tabla resumen en consola
-    echo -e "\n${COLOR_TITULO}=== TABLA RESUMEN DE PUNTAJES ===${SIN_COLOR}\n"
-    printf "%-42s | %5s | %5s\n" "MÉTRICA" "SCORE" "PESO%"
+    # Summary table console terminal display layout
+    echo -e "\n${COLOR_TITULO}=== METRICS ACCOUNTING OVERVIEW ===${SIN_COLOR}\n"
+    printf "%-42s | %5s | %5s\n" "METRIC ITEM" "SCORE" "WEIGHT%"
     printf "%-42s | %5s | %5s\n" "──────────────────────────────────────────" "─────" "─────"
-    printf "%-42s | %5d | %5d\n" "1.  Calidad de mensajes de commit"      "$p_calidad"     15
-    printf "%-42s | %5d | %5d\n" "2.  Horario de commits (7 AM – 5 PM)"   "$p_horario"     15
-    printf "%-42s | %5d | %5d\n" "3.  Riqueza descriptiva de mensajes"    "$p_mensajes"    15
-    printf "%-42s | %5d | %5d\n" "4.  Regularidad y frecuencia"           "$p_regularidad" 10
-    printf "%-42s | %5d | %5d\n" "5.  Diversidad de archivos"             "$p_archivos"    10
-    printf "%-42s | %5d | %5d\n" "6.  Tamaño de commits (churn)"          "$p_tamano"      10
-    printf "%-42s | %5d | %5d\n" "7.  Limpieza de historial (merges)"     "$p_merges"       5
-    printf "%-42s | %5d | %5d\n" "8.  Actividad fuera de horario"         "$p_irregular"    5
-    printf "%-42s | %5d | %5d\n" "9.  Integridad del código"              "$p_integridad"  10
-    printf "%-42s | %5d | %5d\n" "10. Convención de nombres (CC)"         "$p_nombres"      5
+    printf "%-42s | %5d | %5d\n" "1.  Commit message validation check"    "$p_calidad"     15
+    printf "%-42s | %5d | %5d\n" "2.  Work hour schedule compliance"      "$p_horario"     15
+    printf "%-42s | %5d | %5d\n" "3.  Description completeness richness"  "$p_mensajes"    15
+    printf "%-42s | %5d | %5d\n" "4.  Delivery frequency consistency"     "$p_regularidad" 10
+    printf "%-42s | %5d | %5d\n" "5.  File tracking variance diversity"   "$p_archivos"    10
+    printf "%-42s | %5d | %5d\n" "6.  Diff line scale profiles (churn)"   "$p_tamano"      10
+    printf "%-42s | %5d | %5d\n" "7.  Linear branch compliance (merges)"  "$p_merges"       5
+    printf "%-42s | %5d | %5d\n" "8.  Off-hours activity tracking"        "$p_irregular"    5
+    printf "%-42s | %5d | %5d\n" "9.  Code base structural integrity"     "$p_integridad"  10
+    printf "%-42s | %5d | %5d\n" "10. Conventional Commits syntax layout" "$p_nombres"      5
     printf "%-42s | %5s | %5s\n" "──────────────────────────────────────────" "─────" "─────"
-    printf "%-42s | %5d | %5s\n" "PUNTAJE FINAL PONDERADO"                "$puntaje_final" "100"
+    printf "%-42s | %5d | %5s\n" "TOTAL WEIGHTED SCORE OUTCOME"           "$puntaje_final" "100"
     echo ""
 
-    # Detalles técnicos adicionales
-    mostrar_titulo "DETALLES TÉCNICOS"
-    echo -e "${COLOR_INFO}Total de commits:${SIN_COLOR}              $r_total"
-    echo -e "${COLOR_INFO}Período activo:${SIN_COLOR}                $r_dias días"
-    echo -e "${COLOR_INFO}Commits por día (prom.):${SIN_COLOR}       $r_por_dia"
-    echo -e "${COLOR_INFO}Archivos modificados:${SIN_COLOR}          $a_total"
-    echo -e "${COLOR_INFO}Líneas totales (churn):${SIN_COLOR}        $t_total"
-    echo -e "${COLOR_INFO}Commits con CC naming:${SIN_COLOR}         $n_conv / $n_total"
+    # Supplemental evaluation analytics data block
+    mostrar_titulo "TECHNICAL DATA ENGINE DETAILS"
+    echo -e "${COLOR_INFO}Total branch commits:${SIN_COLOR}       $r_total"
+    echo -e "${COLOR_INFO}Active days tracking range:${SIN_COLOR} $r_dias days"
+    echo -e "${COLOR_INFO}Average daily commit density:${SIN_COLOR} $r_por_dia"
+    echo -e "${COLOR_INFO}Total distinct files touched:${SIN_COLOR} $a_total"
+    echo -e "${COLOR_INFO}Global branch file churn scale:${SIN_COLOR} $t_total"
+    echo -e "${COLOR_INFO}Conformant CC structured titles:${SIN_COLOR} $n_conv / $n_total"
     echo ""
 
-    # Limpiar archivos temporales
+    # Clear volatile workspace files and folders
     rm -rf "$DIR_TEMP"
 }
 
 # ============================================================================
-# PUNTO DE ENTRADA
-# Solo ejecutar si se llama directamente (no si se hace 'source')
+# RUNTIME APPLICATION ENTRYPOINT
+# Safe launch guards avoiding unintended calls under source patterns
 # ============================================================================
 if [ "${BASH_SOURCE[0]}" == "${0}" ]; then
     ejecutar_analisis "$@"
